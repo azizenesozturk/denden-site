@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenDen</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A2626',
+            card: '#2C3E3E',
+            text: '#C1AB85',
+            heading: '#7BA7AF',
+            accent: '#F3701E',
+            highlight: '#B2E50F',
+            danger: '#C94E44',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text">
+
+  <!-- HEADER -->
+<header class="bg-card sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="DenDen" class="h-12 w-auto">
+      <span class="text-heading text-3xl font-bold">DenDen</span>
+    </a>
+
+    <!-- Masaüstü Menü (mobilde gizli) -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+      <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+      <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+      <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+    <!-- Masaüstü Sosyal İkonlar -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button id="menuAcBtn" class="md:hidden text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBİL TAM EKRAN MENÜ (başlangıçta gizli) -->
+<div id="mobilMenu" class="hidden fixed inset-0 bg-bg z-50 flex-col">
+  <div class="flex justify-end p-6">
+    <button id="menuKapatBtn" class="text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Sosyal İkonlar -->
+  <div class="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </div>
+
+  <!-- Menü Linkleri -->
+  <nav class="flex flex-col items-center gap-6 text-xl">
+    <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+    <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+    <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+    <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+    <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+    <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+    <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+    <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+    <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+  </nav>
+</div>
+
+<main>
+
+  <section class="max-w-3xl mx-auto px-6 py-8 text-center">
+    <h1 class="text-heading text-3xl font-bold mb-4">Zirveye Koş</h1>
+    
+    <div class="relative inline-block bg-card rounded-xl overflow-hidden max-w-full">
+      <canvas id="oyunCanvas" width="700" height="300" class="block w-full h-auto"></canvas>
+      <div id="baslaIkon" class="absolute left-1/2 -translate-x-1/2 top-[45%] text-accent cursor-pointer hover:opacity-80 transition">
+        <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M16 13v-2h-2v2h2Zm-2-2V9h-2v2h2Zm0 4v-2h-2v2h2Zm-2-6V7h-2v2h2Zm0 8v-2h-2v2h2ZM10 7V5H8v2h2Zm0 12v-2H8v2h2Z"/></svg>
+      </div>
+    </div>
+
+    <p class="text-text text-sm mt-4">Zıplamak için BOŞLUK tuşuna veya ekrana dokun.</p>
+  </section>
+
+</main>
+
+<footer class="bg-card mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-center">
+
+    <!-- Hızlı Linkler -->
+    <nav class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+  </div>
+
+  <!-- Telif Hakkı -->
+  <div class="text-center text-text/60 text-xs pb-6">
+    © 2026 DenDen. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+  const menuAcBtn = document.getElementById('menuAcBtn');
+  const menuKapatBtn = document.getElementById('menuKapatBtn');
+  const mobilMenu = document.getElementById('mobilMenu');
+
+  menuAcBtn.addEventListener('click', () => {
+    mobilMenu.classList.remove('hidden');
+    mobilMenu.classList.add('flex');
+  });
+
+  menuKapatBtn.addEventListener('click', () => {
+    mobilMenu.classList.add('hidden');
+    mobilMenu.classList.remove('flex');
+  });
+
+// OYUN — TEMEL İSKELET
+  const canvas = document.getElementById('oyunCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  const zeminY = 250; // zeminin y konumu
+  const karakterResmi = new Image();
+karakterResmi.src = 'images/karakter.png';
+
+const agacResmi = new Image();
+agacResmi.src = 'images/agac.png';
+
+const kalkanResmi = new Image();
+kalkanResmi.src = 'images/kalkan.png';
+
+const kanatResmi = new Image();
+kanatResmi.src = 'images/kanat.png';
+
+
+  const karakter = {
+    x: 80,
+    y: zeminY - 34,
+    w: 34,
+    h: 34,
+    renk: '#F3701E',
+    ySpeed: 0,
+    ziplamada: false
+  };
+
+  // AĞAÇLAR (ENGELLER)
+  let agaclar = [];
+  let sonrakiAgacSayaci = 100; // oyun başladıktan sonra biraz bekle
+
+  function agacOlustur() {
+    agaclar.push({
+      x: canvas.width,
+      y: zeminY - 28,
+      w: 28,
+      h: 28
+    });
+  }
+
+  function agaclariGuncelle() {
+    // Yeni ağaç oluştur (rastgele aralıklarla)
+    sonrakiAgacSayaci--;
+    if (sonrakiAgacSayaci <= 0) {
+      agacOlustur();
+      sonrakiAgacSayaci = 80 + Math.random() * 80; // 80-160 frame arası bekle
+    }
+
+    // Ağaçları hareket ettir
+    agaclar.forEach(a => a.x -= hiz);
+
+    // Ekrandan çıkanları sil
+    agaclar = agaclar.filter(a => a.x + a.w > 0);
+  }
+
+  function cizAgaclar() {
+    agaclar.forEach(a => {
+      ctx.drawImage(agacResmi, a.x, a.y, a.w, a.h);
+    });
+  }
+
+  // POWER-UP'LAR
+  let powerUplar = [];
+  let sonrakiPowerUpSayaci = 300;
+
+  let kalkanAktif = false;
+  let ucmaAktif = false;
+  let ucmaSuresi = 0;
+
+  function powerUpOlustur() {
+    const tip = Math.random() < 0.5 ? 'kalkan' : 'ucma';
+    powerUplar.push({
+      x: canvas.width,
+      y: zeminY - 80 - Math.random() * 40,
+      w: 22,
+      h: 22,
+      tip: tip
+    });
+  }
+
+  function powerUplariGuncelle() {
+    sonrakiPowerUpSayaci--;
+    if (sonrakiPowerUpSayaci <= 0) {
+      powerUpOlustur();
+      sonrakiPowerUpSayaci = 250 + Math.random() * 200;
+    }
+
+    powerUplar.forEach(p => p.x -= hiz);
+    powerUplar = powerUplar.filter(p => p.x + p.w > 0);
+
+    // Karakterle çarpışma (toplama)
+    powerUplar = powerUplar.filter(p => {
+      const carpisti = karakter.x < p.x + p.w &&
+                        karakter.x + karakter.w > p.x &&
+                        karakter.y < p.y + p.h &&
+                        karakter.y + karakter.h > p.y;
+      if (carpisti) {
+        if (p.tip === 'kalkan') {
+          kalkanAktif = true;
+        } else {
+          ucmaAktif = true;
+          ucmaSuresi = 200; // frame sayısı, yaklaşık 3-4 saniye
+        }
+        return false; // toplandı, listeden çıkar
+      }
+      return true;
+    });
+  }
+
+  function cizPowerUplar() {
+    powerUplar.forEach(p => {
+      const resim = p.tip === 'kalkan' ? kalkanResmi : kanatResmi;
+      ctx.drawImage(resim, p.x, p.y, p.w, p.h);
+    });
+  }
+
+  function cizPowerUpDurumu() {
+    ctx.textAlign = 'left';
+    ctx.font = 'bold 13px sans-serif';
+    let y = 25;
+    if (kalkanAktif) {
+      ctx.fillStyle = '#7BA7AF';
+      ctx.fillText('🛡 Kalkan Aktif', 15, y);
+      y += 20;
+    }
+    if (ucmaAktif) {
+      ctx.fillStyle = '#B2E50F';
+      ctx.fillText('🪶 Uçuyorsun', 15, y);
+    }
+  }
+
+  function cizSkor() {
+    ctx.fillStyle = '#C1AB85';
+    ctx.font = 'bold 16px sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('Skor: ' + Math.floor(skor), canvas.width - 15, 25);
+    ctx.fillText('En Yüksek: ' + enYuksekSkor, canvas.width - 15, 45);
+  }
+
+  function carpismaKontrol() {
+    if (ucmaAktif) return false; // uçarken hiçbir şeye çarpmaz
+
+    for (let i = 0; i < agaclar.length; i++) {
+      const a = agaclar[i];
+      if (
+        karakter.x < a.x + a.w &&
+        karakter.x + karakter.w > a.x &&
+        karakter.y < a.y + a.h &&
+        karakter.y + karakter.h > a.y
+      ) {
+        if (kalkanAktif) {
+          kalkanAktif = false; // kalkan bir kere korur, sonra biter
+          agaclar.splice(i, 1); // çarpılan ağacı kaldır, tekrar çarpmasın
+          return false;
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const yerCekimi = 0.60;
+const ziplamaGucu = -13;
+  const zeminSeviyesi = zeminY - 34; // karakterin yerde durduğu y konumu
+
+  // SKOR
+  let skor = 0;
+  let enYuksekSkor = parseInt(localStorage.getItem('enYuksekSkor')) || 0;
+
+  function cizZemin() {
+    ctx.strokeStyle = '#C1AB85';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, zeminY);
+    ctx.lineTo(canvas.width, zeminY);
+    ctx.stroke();
+  }
+
+  function cizKarakter() {
+    ctx.save();
+    ctx.globalAlpha = 1;
+    if (karakterResmi.complete && karakterResmi.naturalWidth > 0) {
+      ctx.drawImage(karakterResmi, karakter.x, karakter.y, karakter.w, karakter.h);
+    } else {
+      // Resim yüklenmemişse görünmez kalmasın diye yedek çizim
+      ctx.fillStyle = karakter.renk;
+      ctx.fillRect(karakter.x, karakter.y, karakter.w, karakter.h);
+    }
+    ctx.restore();
+
+    if (ucmaAktif) {
+      ctx.strokeStyle = '#B2E50F';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(karakter.x - 3, karakter.y - 3, karakter.w + 6, karakter.h + 6);
+    } else if (kalkanAktif) {
+      ctx.strokeStyle = '#7BA7AF';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(karakter.x - 3, karakter.y - 3, karakter.w + 6, karakter.h + 6);
+    }
+  }
+
+  let zeminOffset = 0;
+let hiz = 2.5;
+let oyunBasladi = false;
+
+  function cizZeminCizgileri() {
+    ctx.strokeStyle = 'rgba(193, 171, 133, 0.3)';
+    ctx.lineWidth = 2;
+    for (let i = 0; i < canvas.width / 40 + 2; i++) {
+      const x = (i * 40 - zeminOffset % 40);
+      ctx.beginPath();
+      ctx.moveTo(x, zeminY + 10);
+      ctx.lineTo(x + 20, zeminY + 10);
+      ctx.stroke();
+    }
+  }
+
+  function karakterFizik() {
+    if (ucmaAktif) {
+      // Uçarken havada süzülür, hafifçe yukarı-aşağı gider
+      karakter.y = zeminSeviyesi - 60 + Math.sin(zeminOffset * 0.1) * 10;
+      karakter.ySpeed = 0;
+
+      ucmaSuresi--;
+      if (ucmaSuresi <= 0) {
+        ucmaAktif = false;
+      }
+    } else {
+      karakter.ySpeed += yerCekimi;
+      karakter.y += karakter.ySpeed;
+
+      if (karakter.y >= zeminSeviyesi) {
+        karakter.y = zeminSeviyesi;
+        karakter.ySpeed = 0;
+        karakter.ziplamada = false;
+      }
+    }
+  }
+
+  function ziplat() {
+    if (!karakter.ziplamada) {
+      karakter.ySpeed = ziplamaGucu;
+      karakter.ziplamada = true;
+    }
+  }
+
+  let oyunBitti = false;
+
+  function cizBaslangicEkrani() {
+    ctx.fillStyle = '#7BA7AF';
+    ctx.font = 'bold 22px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Zirveye Koş', canvas.width / 2, 110);
+
+    ctx.font = '14px sans-serif';
+    ctx.fillStyle = '#C1AB85';
+    ctx.fillText('Başlamak için tıkla veya BOŞLUK\'a bas', canvas.width / 2, 140);
+  }
+
+  function oyunuBaslat() {
+    if (oyunBasladi) return;
+    oyunBasladi = true;
+    document.getElementById('baslaIkon').classList.add('hidden');
+  }
+
+  function oyunDongu() {
+    if (oyunBitti) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (!oyunBasladi) {
+      cizBaslangicEkrani();
+      requestAnimationFrame(oyunDongu);
+      return;
+    }
+    
+    cizZemin();
+    cizZeminCizgileri();
+    karakterFizik();
+    agaclariGuncelle();
+    powerUplariGuncelle();
+    cizAgaclar();
+    cizPowerUplar();
+    cizKarakter();
+    cizSkor();
+    cizPowerUpDurumu();
+
+    skor += 0.15; // her frame'de biraz skor ekle (mesafe bazlı)
+
+    if (carpismaKontrol()) {
+      oyunBitti = true;
+
+      if (Math.floor(skor) > enYuksekSkor) {
+        enYuksekSkor = Math.floor(skor);
+        localStorage.setItem('enYuksekSkor', enYuksekSkor);
+      }
+
+      ctx.fillStyle = 'rgba(26, 38, 38, 0.8)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#F3701E';
+      ctx.font = 'bold 24px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Oyun Bitti', canvas.width / 2, canvas.height / 2 - 15);
+      ctx.font = '16px sans-serif';
+      ctx.fillStyle = '#C1AB85';
+      ctx.fillText('Skor: ' + Math.floor(skor) + '  —  Yeniden başlamak için tıkla', canvas.width / 2, canvas.height / 2 + 15);
+      return;
+    }
+
+    zeminOffset += hiz;
+
+    if (hiz < 7) {
+      hiz += 0.002;
+    }
+
+    requestAnimationFrame(oyunDongu);
+  }
+
+  
+
+  oyunDongu();
+  document.getElementById('baslaIkon').addEventListener('click', () => {
+    oyunuBaslat();
+  });
+  // KLAVYE VE DOKUNMA KONTROLÜ
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      if (!oyunBasladi) {
+        oyunuBaslat();
+      } else if (!oyunBitti) {
+        ziplat();
+      }
+    }
+  });
+
+  canvas.addEventListener('click', () => {
+    if (oyunBitti) {
+      window.location.reload();
+    } else if (!oyunBasladi) {
+      oyunuBaslat();
+    } else {
+      ziplat();
+    }
+  });
+
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (oyunBitti) {
+      window.location.reload();
+    } else if (!oyunBasladi) {
+      oyunuBaslat();
+    } else {
+      ziplat();
+    }
+  });
+
+  
+
+</script>
+
+</body>
+</html>

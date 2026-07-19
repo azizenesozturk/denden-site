@@ -1,0 +1,8 @@
+[
+  {
+    "ad": "Macera Zamanı",
+    "kisaAciklama": "Harita üzerinde rota planlama ve takip uygulaması.",
+    "aciklama": "Kullanıcının harita üzerinde yer ve rota ekleyip bunlara daha sonra ulaşabildiği bir uygulama. Konum verisi sayesinde kullanıcı, planladığı rotada nerede olduğunu anlık olarak takip edebiliyor.",
+    "link": "https://ozturkazizenes.pythonanywhere.com/"
+  }
+]

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenDen</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A2626',
+            card: '#2C3E3E',
+            text: '#C1AB85',
+            heading: '#7BA7AF',
+            accent: '#F3701E',
+            highlight: '#B2E50F',
+            danger: '#C94E44',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text">
+
+  <!-- HEADER -->
+<header class="bg-card sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="DenDen" class="h-12 w-auto">
+      <span class="text-heading text-3xl font-bold">DenDen</span>
+    </a>
+
+    <!-- Masaüstü Menü (mobilde gizli) -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+      <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+      <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+      <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+    <!-- Masaüstü Sosyal İkonlar -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button id="menuAcBtn" class="md:hidden text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBİL TAM EKRAN MENÜ (başlangıçta gizli) -->
+<div id="mobilMenu" class="hidden fixed inset-0 bg-bg z-50 flex-col">
+  <div class="flex justify-end p-6">
+    <button id="menuKapatBtn" class="text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Sosyal İkonlar -->
+  <div class="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </div>
+
+  <!-- Menü Linkleri -->
+  <nav class="flex flex-col items-center gap-6 text-xl">
+    <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+    <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+    <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+    <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+    <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+    <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+    <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+    <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+    <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+  </nav>
+</div>
+
+<main>
+
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <h1 class="text-heading text-4xl font-bold mb-3 text-center">İletişim</h1>
+    <p class="text-text text-center mb-12">Bana buradan ulaşabilirsin.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- FORM -->
+      <div>
+      <form id="iletisimForm" action="https://formspree.io/f/xpqvpgkw" method="POST" class="space-y-4">
+          <div>
+            <label class="text-heading text-sm font-semibold block mb-1">Ad Soyad</label>
+            <input type="text" name="ad" required class="w-full bg-card text-text rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <div>
+            <label class="text-heading text-sm font-semibold block mb-1">E-posta</label>
+            <input type="email" name="email" required class="w-full bg-card text-text rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <div>
+            <label class="text-heading text-sm font-semibold block mb-1">Konu</label>
+            <input type="text" name="konu" id="konuInput" class="w-full bg-card text-text rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-accent">
+          </div>
+          <div>
+            <label class="text-heading text-sm font-semibold block mb-1">Mesaj</label>
+            <textarea name="mesaj" required rows="5" class="w-full bg-card text-text rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-accent"></textarea>
+          </div>
+          <button type="submit" class="bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition w-full">
+            Gönder
+          </button>
+        </form>
+        <p id="basariMesaji" class="hidden text-highlight font-semibold mt-4 text-center">
+          Teşekkürler, mesajınız ulaştı!
+        </p>
+      </div>
+
+      <!-- DİĞER YOLLAR -->
+      <div class="bg-card rounded-xl p-8 space-y-6 h-fit">
+      
+        <h3 class="text-heading text-lg font-bold mb-2">Diğer Yollar</h3>
+
+        <a href="mailto:denden131345@gmail.com" class="flex items-center gap-3 text-text hover:text-accent transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-8-4h-4v-2h4v2Zm-4-2H8v-2h2v2Zm6 0h-2v-2h2v2Zm-8-2H6V8h2v2Zm10 0h-2V8h2v2Zm2-4H4V4h16v2Z"/></svg>
+          denden131345@gmail.com
+        </a>
+
+        <a href="tel:+905526861170" class="flex items-center gap-3 text-text hover:text-accent transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 22h-9v-2h9v2Zm-9-2h-2v-2h2v2Zm11 0h-2v-5h2v5Zm-13-2H8v-2h2v2Zm7-1h-4v-2h4v2Zm-9-1H6v-2h2v2Zm5-1h-2v-2h2v2Zm8 0h-4v-2h4v2ZM6 14H4v-2h2v2Zm5-1H9v-2h2v2Zm-7-1H2V3h2v9Zm5-1H7V7h2v4Zm2-4H9V3h2v4ZM9 3H4V1h5v2Z"/></svg>
+          0552 686 11 70
+        </a>
+
+        <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="flex items-center gap-3 text-text hover:text-accent transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Instagram
+        </a>
+
+        <a href="https://www.youtube.com/@dendentime" target="_blank" class="flex items-center gap-3 text-text hover:text-accent transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+          YouTube
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-card mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-center">
+
+    <!-- Hızlı Linkler -->
+    <nav class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+  </div>
+
+  <!-- Telif Hakkı -->
+  <div class="text-center text-text/60 text-xs pb-6">
+    © 2026 DenDen. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+  const menuAcBtn = document.getElementById('menuAcBtn');
+  const menuKapatBtn = document.getElementById('menuKapatBtn');
+  const mobilMenu = document.getElementById('mobilMenu');
+
+  menuAcBtn.addEventListener('click', () => {
+    mobilMenu.classList.remove('hidden');
+    mobilMenu.classList.add('flex');
+  });
+
+  menuKapatBtn.addEventListener('click', () => {
+    mobilMenu.classList.add('hidden');
+    mobilMenu.classList.remove('flex');
+  });
+
+// URL'DEN "KONU" PARAMETRESİNİ OKU VE FORMA DOLDUR
+  const iletisimParams = new URLSearchParams(window.location.search);
+  const konuParam = iletisimParams.get('konu');
+  if (konuParam) {
+    document.getElementById('konuInput').value = konuParam;
+  }
+
+  // FORMU AJAX İLE GÖNDER (sayfa yenilenmeden)
+  const form = document.getElementById('iletisimForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('basariMesaji').classList.remove('hidden');
+        }
+      }).catch(err => console.error('Form gönderilemedi:', err));
+    });
+  }
+
+</script>
+
+</body>
+</html>

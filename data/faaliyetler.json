@@ -1,0 +1,21 @@
+[
+  {
+    "id": "yilan-kalesi-2026",
+    "tarih": "2026-03-13",
+    "rota": "Yılan Kalesi",
+    "bolge": "Adana/Ceyhan",
+    "zorluk": "Orta",
+    "ekip": ["Ben (tek gittim)"],
+    "havaDurumu": "Güneşli, bulutlu",
+    "ekipman": ["Çanta", "Termos", "Yiyecekler"],
+    "kapak": "images/faaliyetler/yilan-kalesi-2026/kapak.jpeg",
+    "detaylar": "Adana - Ceyhan karayolu üzerinden, tabelaları takip ederek ulaşılıyor. Yürüyüş yaklaşık 1.5 saat sürüyor. Rota orta zorlukta, patika kısmen belirgin.",
+    "ani": "Yılan Kalesi'ne tek başıma çıktım. Adana/Ceyhan bölgesindeki bu tarihi kale, hem doğa yürüyüşü hem de tarih meraklıları için güzel bir rota.",
+    "sonBasvuruTarihi": "",
+    "fotograflar": [
+      { "url": "images/faaliyetler/yilan-kalesi-2026/foto1.jpeg", "aciklama": "" },
+      { "url": "images/faaliyetler/yilan-kalesi-2026/foto2.jpeg", "aciklama": "" },
+      { "url": "images/faaliyetler/yilan-kalesi-2026/foto3.jpeg", "aciklama": "" }
+    ]
+  }
+]

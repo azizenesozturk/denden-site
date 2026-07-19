@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenDen</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // ANASAYFA — SON FAALİYETİ ÇEK VE GÖSTER
+  fetch('data/faaliyetler.json')
+    .then(response => response.json())
+    .then(faaliyetler => {
+      faaliyetler.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+      const f = faaliyetler[0];
+      const container = document.getElementById('sonFaaliyet');
+
+      if (!f) {
+        container.innerHTML = '<p class="text-text">Henüz faaliyet eklenmedi.</p>';
+        return;
+      }
+
+      const ozet = f.detaylar ? f.detaylar.substring(0, 100) + '...' : (f.ani ? f.ani.substring(0, 100) + '...' : '');
+
+      container.innerHTML = `
+        <a href="faaliyet-detay.html?id=${f.id}" class="block bg-card rounded-xl overflow-hidden hover:bg-card/70 transition md:flex">
+          <div class="md:w-1/2 h-64 bg-bg/50">
+            <img src="${f.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6 md:w-1/2 flex flex-col justify-center">
+            <span class="text-highlight text-xs font-semibold mb-2">${f.zorluk.toUpperCase()} ZORLUK</span>
+            <h3 class="text-heading text-xl font-bold mb-2">${f.rota}</h3>
+            <p class="text-text text-sm mb-4">${f.bolge} — ${ozet}</p>
+            <span class="text-accent text-sm font-semibold">Devamını Oku →</span>
+          </div>
+        </a>
+      `;
+    })
+    .catch(err => console.error('Son faaliyet yüklenemedi:', err));
+
+
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A2626',
+            card: '#2C3E3E',
+            text: '#C1AB85',
+            heading: '#7BA7AF',
+            accent: '#F3701E',
+            highlight: '#B2E50F',
+            danger: '#C94E44',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text">
+
+  <header class="bg-card sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="DenDen" class="h-12 w-auto">
+      <span class="text-heading text-3xl font-bold">DenDen</span>
+    </a>
+
+    <!-- Masaüstü Menü (mobilde gizli) -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+      <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+      <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+      <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+    <!-- Masaüstü Sosyal İkonlar -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button id="menuAcBtn" class="md:hidden text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBİL TAM EKRAN MENÜ (başlangıçta gizli) -->
+<div id="mobilMenu" class="hidden fixed inset-0 bg-bg z-50 flex-col">
+  <div class="flex justify-end p-6">
+    <button id="menuKapatBtn" class="text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Sosyal İkonlar -->
+  <div class="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </div>
+
+  <!-- Menü Linkleri -->
+  <nav class="flex flex-col items-center gap-6 text-xl">
+    <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+    <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+    <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+    <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+    <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+    <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+    <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+    <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+    <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+  </nav>
+</div>
+
+<main>
+
+  <!-- VİDEO + ÜZERİNDE BAŞLIK -->
+  <section class="relative w-full">
+    <video 
+      class="w-full h-auto max-h-[600px] object-cover"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+    >
+      <source src="images/hero.mp4" type="video/mp4">
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <!-- Koyu Yarı Saydam Katman -->
+    <div class="absolute inset-0 bg-bg/40 flex items-start justify-start">
+      <div class="text-left px-8 py-8 md:px-16 md:py-12 max-w-xl">
+        <h1 class="text-heading text-3xl md:text-5xl font-bold mb-3">
+          Hoş geldin ;)
+        </h1>
+        <p class="text-text text-base md:text-lg">
+          Kendi grubumuzla tırmanış, doğa yürüyüşü ve kampçılık etkinlikleri yapıyoruz; bize katıl.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- VİDEO BÖLÜMÜ -->
+  
+
+<!-- HIZLI ERİŞİM KARTLARI -->
+  <section class="max-w-6xl mx-auto px-6 py-8 md:py-16">
+    <div class="grid grid-cols-3 gap-2 md:gap-6">
+
+      <!-- Faaliyetler -->
+      <a href="faaliyetler.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Faaliyetler</h3>
+        <p class="text-text text-sm hidden md:block">Geçmiş rotalarım ve yaklaşan faaliyetlerim.</p>
+      </a>
+
+      <!-- Duyuru -->
+      <a href="duyuru.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 16v4h2v-4H8Zm14 4h-4v-2h2V4h-2V2h4v18Zm-4-2h-2v-2h2v2ZM4 14h4V8H4v6Zm14-8h-2V4h2v2Zm-6 16H6v-6H2V6h14v2h-6v6h6v2h-4v6Z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Duyuru</h3>
+        <p class="text-text text-sm mb-2 hidden md:block">Güncel haberler ve duyurular.</p>
+        <div id="anasayfaDuyuru" class="bg-bg/40 rounded-lg px-3 py-2 mt-2 hidden md:block">
+          <span class="text-accent text-xs font-semibold">GÜNCEL:</span>
+          <p class="text-text text-xs mt-1">Yükleniyor...</p>
+        </div>
+      </a>
+
+      <!-- Blog -->
+      <a href="blog.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M2 3h9v2H2zM0 19h11v2H0zM13 3h9v2h-9zm0 16h11v2H13zM11 5h2v18h-2zM0 5h2v14H0zm22 0h2v14h-2zm-7 2h5v2h-5zm0 4h5v2h-5zm0 4h2v2h-2z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Blog</h3>
+        <p class="text-text text-sm hidden md:block">Dağlardan ve hayattan notlar.</p>
+      </a>
+
+      <!-- Çalışmalarım -->
+      <a href="calismalarim.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20 22H4v-2h16v2ZM4 20H2v-6H0v-2h2V8h2v12Zm18-8h2v2h-2v6h-2V8h2v4Zm-7 6H9v-2H7v-2h10v2h-2v2Zm-5-6H8v-2h2v2Zm6 0h-2v-2h2v2Zm-3-6h7v2H4V6h7V4h2v2Zm4-2h-4V2h4v2Z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Çalışmalarım</h3>
+        <p class="text-text text-sm hidden md:block">Yazılım projelerim.</p>
+      </a>
+
+      <!-- Oyun -->
+      <a href="oyun.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-12-7h2v2h-2v2H8v-2H6v-2h2V9h2v2Zm8 4h-2v-2h2v2Zm-2-4h-2V9h2v2Zm4-5H4V4h16v2Z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Oyun</h3>
+        <p class="text-text text-sm hidden md:block">Küçük bir mola ver, oyna.</p>
+      </a>
+
+      <!-- Bağış -->
+      <a href="bagis.html" class="bg-card rounded-xl p-4 md:p-6 hover:bg-card/70 transition group">
+        <svg class="text-highlight mb-2" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 16H5v-2h2v2Zm12 0h-2v-2h2v2ZM5 14H3v-2h2v2Zm16 0h-2v-2h2v2ZM3 12H1V6h2v6Zm20 0h-2V6h2v6ZM13 8h-2V6h2v2ZM5 6H3V4h2v2Zm6 0H9V4h2v2Zm4 0h-2V4h2v2Zm6 0h-2V4h2v2ZM9 4H5V2h4v2Zm10 0h-4V2h4v2Z"/></svg>
+        <h3 class="text-heading text-sm md:text-lg font-bold mb-1">Bağış</h3>
+        <p class="text-text text-sm hidden md:block"> bizim için değerli.</p>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- DUYURU -->
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <div id="anasayfaDuyuruBlok" class="bg-card border-2 border-highlight rounded-xl p-6">
+      <p class="text-text">Yükleniyor...</p>
+    </div>
+  </section>
+
+  <!-- SON FAALİYET -->
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <h2 class="text-heading text-2xl font-bold mb-6">Son Faaliyet</h2>
+    <div id="sonFaaliyet">
+      <p class="text-text">Yükleniyor...</p>
+    </div>
+  </section>
+
+
+  <!-- SON BLOG YAZILARI -->
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-heading text-2xl font-bold">Son Blog Yazıları</h2>
+      <a href="blog.html" class="text-accent text-sm font-semibold">Blog'u Gör →</a>
+    </div>
+
+    <div id="sonBlogYazilari" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <p class="text-text">Yükleniyor...</p>
+    </div>
+  </section>
+  
+
+  <!-- HAKKIMDA ŞERİDİ -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <div class="bg-card rounded-xl p-8 md:flex items-center gap-8">
+      <div class="w-24 h-24 rounded-full bg-bg/50 shrink-0 mb-4 md:mb-0 overflow-hidden">
+        <img src="images/profil.jpeg" alt="Profil" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\'text-text/40 text-xs flex items-center justify-center h-full\'>Fotoğraf</span>'">
+      </div>
+      <div>
+        <p class="text-text mb-4">
+          Osmaniye Korkut Ata Üniversitesi'nde Yönetim Bilişim Sistemleri okuyorum. Kamp yapmayı ve yeni yerler keşfetmeyi seviyorum, bu site de o keşiflerin ve projelerimin buluştuğu yer.
+        </p>
+        <a href="hakkimda.html" class="text-accent text-sm font-semibold">Daha Fazla →</a>
+      </div>
+    </div>
+  </section> 
+
+</main>
+
+<footer class="bg-card mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-center">
+
+    <!-- Hızlı Linkler -->
+    <nav class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+  </div>
+
+  <!-- Telif Hakkı -->
+  <div class="text-center text-text/60 text-xs pb-6">
+    © 2026 DenDen. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+
+  // ANASAYFA — DUYURU BLOĞU
+  fetch('data/duyuru.json')
+    .then(response => response.json())
+    .then(duyurular => {
+      duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+      const guncel = duyurular[0];
+      const container = document.getElementById('anasayfaDuyuruBlok');
+
+      if (!guncel) {
+        container.parentElement.style.display = 'none';
+        return;
+      }
+
+      container.innerHTML = `
+        <h2 class="text-heading text-2xl font-bold mb-4">Duyuru</h2>
+        <a href="duyuru.html" class="flex flex-col sm:flex-row items-start gap-2 sm:gap-4 hover:opacity-90 transition">
+          <span class="bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full shrink-0 mt-1">GÜNCEL</span>
+          <div class="min-w-0">
+            <h3 class="text-heading text-lg font-bold mb-1">${guncel.baslik}</h3>
+            <p class="text-text text-sm">${guncel.metin}</p>
+          </div>
+        </a>
+      `;
+    })
+    .catch(err => console.error('Duyuru yüklenemedi:', err));
+
+  // ANASAYFA — SON BLOG YAZILARINI ÇEK VE GÖSTER
+  Promise.all([
+    fetch('data/blog.json').then(r => r.json()),
+    fetch('data/faaliyetler.json').then(r => r.json())
+  ]).then(([blogYazilari, faaliyetler]) => {
+
+    const blogItems = blogYazilari.map(b => ({
+      tip: 'blog', id: b.id, tarih: b.tarih, kategori: b.kategori,
+      baslik: b.baslik, ozet: b.ozet, kapak: b.kapak
+    }));
+
+    const faaliyetItems = faaliyetler.map(f => ({
+      tip: 'faaliyet', id: f.id, tarih: f.tarih, kategori: 'Faaliyet',
+      baslik: f.rota, ozet: (f.detaylar || f.ani || '').substring(0, 80) + '...', kapak: f.kapak
+    }));
+
+    let tumIcerik = [...blogItems, ...faaliyetItems];
+    tumIcerik.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+    tumIcerik = tumIcerik.slice(0, 3); // sadece son 3
+
+    const container = document.getElementById('sonBlogYazilari');
+    container.innerHTML = '';
+
+    if (tumIcerik.length === 0) {
+      container.innerHTML = '<p class="text-text">Henüz içerik yok.</p>';
+      return;
+    }
+
+    tumIcerik.forEach(item => {
+      const link = item.tip === 'faaliyet' 
+        ? `faaliyet-detay.html?id=${item.id}` 
+        : `blog-detay.html?id=${item.id}`;
+
+      const kart = document.createElement('a');
+      kart.href = link;
+      kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
+      kart.innerHTML = `
+        <div class="h-40 bg-bg/50">
+          <img src="${item.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+        <div class="p-5">
+          <span class="text-heading text-xs font-semibold">${item.kategori}</span>
+          <h3 class="text-heading text-lg font-bold mt-1 mb-2">${item.baslik}</h3>
+          <p class="text-text text-sm hidden md:block">${item.ozet}</p>
+        </div>
+      `;
+      container.appendChild(kart);
+    });
+  }).catch(err => console.error('Son blog yazıları yüklenemedi:', err));
+  // ANASAYFA — GÜNCEL DUYURUYU ÇEK VE GÖSTER
+  fetch('data/duyuru.json')
+    .then(response => response.json())
+    .then(duyurular => {
+      duyurular.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+      const guncel = duyurular[0];
+      const container = document.getElementById('anasayfaDuyuru');
+
+      if (!guncel) {
+        container.innerHTML = '<p class="text-text text-xs">Henüz duyuru yok.</p>';
+        return;
+      }
+
+      container.innerHTML = `
+        <span class="text-accent text-xs font-semibold">GÜNCEL:</span>
+        <p class="text-text text-xs mt-1">${guncel.baslik}</p>
+      `;
+    })
+    .catch(err => console.error('Duyuru yüklenemedi:', err));
+  const menuAcBtn = document.getElementById('menuAcBtn');
+  const menuKapatBtn = document.getElementById('menuKapatBtn');
+  const mobilMenu = document.getElementById('mobilMenu');
+
+  menuAcBtn.addEventListener('click', () => {
+    mobilMenu.classList.remove('hidden');
+    mobilMenu.classList.add('flex');
+  });
+
+  menuKapatBtn.addEventListener('click', () => {
+    mobilMenu.classList.add('hidden');
+    mobilMenu.classList.remove('flex');
+  });
+</script>
+
+</body>
+</html>

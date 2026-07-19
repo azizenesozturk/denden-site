@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenDen</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A2626',
+            card: '#2C3E3E',
+            text: '#C1AB85',
+            heading: '#7BA7AF',
+            accent: '#F3701E',
+            highlight: '#B2E50F',
+            danger: '#C94E44',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text">
+
+  <!-- HEADER -->
+<header class="bg-card sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="DenDen" class="h-12 w-auto">
+      <span class="text-heading text-3xl font-bold">DenDen</span>
+    </a>
+
+    <!-- Masaüstü Menü (mobilde gizli) -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+      <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+      <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+      <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+    <!-- Masaüstü Sosyal İkonlar -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button id="menuAcBtn" class="md:hidden text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBİL TAM EKRAN MENÜ (başlangıçta gizli) -->
+<div id="mobilMenu" class="hidden fixed inset-0 bg-bg z-50 flex-col">
+  <div class="flex justify-end p-6">
+    <button id="menuKapatBtn" class="text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Sosyal İkonlar -->
+  <div class="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </div>
+
+  <!-- Menü Linkleri -->
+  <nav class="flex flex-col items-center gap-6 text-xl">
+    <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+    <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+    <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+    <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+    <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+    <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+    <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+    <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+    <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+  </nav>
+</div>
+
+<main>
+
+  <!-- FAALİYETLER BAŞLIK -->
+  <section class="max-w-6xl mx-auto px-6 py-12 text-center">
+    <h1 class="text-heading text-4xl font-bold mb-3">Birlikte Yürüyelim</h1>
+    <p class="text-text">Geçmiş rotalarım ve yaklaşan faaliyetlerim.</p>
+  </section>
+
+  <!-- FAALİYET KARTLARI (JS ile doldurulacak) -->
+  <section class="max-w-6xl mx-auto px-6 pb-16">
+    <div id="faaliyetGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Kartlar buraya JS ile eklenecek -->
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="bg-card mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-center">
+
+    <!-- Hızlı Linkler -->
+    <nav class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+  </div>
+
+  <!-- Telif Hakkı -->
+  <div class="text-center text-text/60 text-xs pb-6">
+    © 2026 DenDen. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+  const menuAcBtn = document.getElementById('menuAcBtn');
+  const menuKapatBtn = document.getElementById('menuKapatBtn');
+  const mobilMenu = document.getElementById('mobilMenu');
+
+  menuAcBtn.addEventListener('click', () => {
+    mobilMenu.classList.remove('hidden');
+    mobilMenu.classList.add('flex');
+  });
+
+  menuKapatBtn.addEventListener('click', () => {
+    mobilMenu.classList.add('hidden');
+    mobilMenu.classList.remove('flex');
+  });
+
+// FAALİYETLERİ JSON'DAN ÇEK VE GÖSTER
+  fetch('data/faaliyetler.json')
+    .then(response => response.json())
+    .then(faaliyetler => {
+      // Tarihe göre sırala (en yeni üstte)
+      faaliyetler.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+
+      const grid = document.getElementById('faaliyetGrid');
+      
+      const alevIkon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="inline -mt-0.5 mr-1"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-2-1-3-1-3 2 1 3 4 3 6a6 6 0 0 1-12 0c0-4 3-6 3-10 1 1 2 2 3 0Z"/></svg>`;
+
+      faaliyetler.forEach(f => {
+        const zorlukRenk = f.zorluk === 'Kolay' ? 'bg-highlight text-bg' 
+                          : f.zorluk === 'Zor' ? 'bg-danger text-white' 
+                          : 'bg-accent text-white';
+
+        const kart = document.createElement('a');
+        kart.href = `faaliyet-detay.html?id=${f.id}`;
+        kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
+        kart.innerHTML = `
+          <div class="h-48 bg-bg/50 flex items-center justify-center">
+            <img src="${f.kapak}" alt="${f.rota}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          </div>
+          <div class="p-5">
+            <span class="${zorlukRenk} text-xs font-semibold px-3 py-1 rounded-full">${alevIkon}Zorluk: ${f.zorluk}</span>
+            <h3 class="text-heading text-lg font-bold mt-3 mb-1">${f.rota}</h3>
+            <p class="text-text text-sm mb-2">${f.bolge} — ${f.tarih}</p>
+            ${f.detaylar ? `<p class="text-highlight text-sm">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
+          </div>
+        `;
+        grid.appendChild(kart);
+      });
+    })
+    .catch(err => console.error('Faaliyetler yüklenemedi:', err));  
+
+</script>
+
+</body>
+</html>
