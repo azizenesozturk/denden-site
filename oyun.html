@@ -171,10 +171,10 @@ kanatResmi.src = 'images/kanat.png';
 
 
   const karakter = {
-    x: 80,
-    y: zeminY - 34,
-    w: 34,
-    h: 34,
+    x: 100,
+    y: zeminY - 60,
+    w: 50,
+    h: 60,
     renk: '#F3701E',
     ySpeed: 0,
     ziplamada: false
@@ -187,9 +187,9 @@ kanatResmi.src = 'images/kanat.png';
   function agacOlustur() {
     agaclar.push({
       x: canvas.width,
-      y: zeminY - 28,
-      w: 28,
-      h: 28
+      y: zeminY - 55,
+      w: 36,
+      h: 55
     });
   }
 
@@ -226,9 +226,9 @@ kanatResmi.src = 'images/kanat.png';
     const tip = Math.random() < 0.5 ? 'kalkan' : 'ucma';
     powerUplar.push({
       x: canvas.width,
-      y: zeminY - 80 - Math.random() * 40,
-      w: 22,
-      h: 22,
+      y: zeminY - 110 - Math.random() * 50,
+      w: 30,
+      h: 30,
       tip: tip
     });
   }
@@ -316,7 +316,7 @@ kanatResmi.src = 'images/kanat.png';
 
   const yerCekimi = 0.60;
 const ziplamaGucu = -13;
-  const zeminSeviyesi = zeminY - 34; // karakterin yerde durduğu y konumu
+  const zeminSeviyesi = zeminY - 60; // karakterin yerde durduğu y konumu
 
   // SKOR
   let skor = 0;
@@ -373,7 +373,7 @@ let oyunBasladi = false;
   function karakterFizik() {
     if (ucmaAktif) {
       // Uçarken havada süzülür, hafifçe yukarı-aşağı gider
-      karakter.y = zeminSeviyesi - 60 + Math.sin(zeminOffset * 0.1) * 10;
+      karakter.y = zeminSeviyesi - 80 + Math.sin(zeminOffset * 0.1) * 12;
       karakter.ySpeed = 0;
 
       ucmaSuresi--;
@@ -464,8 +464,14 @@ let oyunBasladi = false;
 
     zeminOffset += hiz;
 
-    if (hiz < 13) {
-      hiz += 0.006;
+    zeminOffset += hiz;
+
+    zeminOffset += hiz;
+
+    zeminOffset += hiz;
+
+    if (hiz < 16) {
+      hiz += 0.06;
     }
 
     requestAnimationFrame(oyunDongu);
