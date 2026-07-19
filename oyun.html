@@ -103,11 +103,11 @@
 
 <main>
 
-  <section class="max-w-3xl mx-auto px-6 py-8 text-center">
+  <section class="max-w-5xl mx-auto px-0 md:px-6 py-8 text-center">
     <h1 class="text-heading text-3xl font-bold mb-4">Zirveye Koş</h1>
     
-    <div class="relative inline-block bg-card rounded-xl overflow-hidden max-w-full">
-      <canvas id="oyunCanvas" width="700" height="300" class="block w-full h-auto"></canvas>
+    <div class="relative inline-block bg-card rounded-none md:rounded-xl overflow-hidden w-full" style="max-width: 1100px;">
+      <canvas id="oyunCanvas" width="800" height="500" class="block w-full h-auto"></canvas>
       <div id="baslaIkon" class="absolute left-1/2 -translate-x-1/2 top-[45%] text-accent cursor-pointer hover:opacity-80 transition">
         <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M16 13v-2h-2v2h2Zm-2-2V9h-2v2h2Zm0 4v-2h-2v2h2Zm-2-6V7h-2v2h2Zm0 8v-2h-2v2h2ZM10 7V5H8v2h2Zm0 12v-2H8v2h2Z"/></svg>
       </div>
@@ -156,7 +156,7 @@
   const canvas = document.getElementById('oyunCanvas');
   const ctx = canvas.getContext('2d');
   ctx.imageSmoothingEnabled = false;
-  const zeminY = 250; // zeminin y konumu
+  const zeminY = 400; // zeminin y konumu
   const karakterResmi = new Image();
 karakterResmi.src = 'images/karakter.png';
 
@@ -355,7 +355,7 @@ const ziplamaGucu = -13;
   }
 
   let zeminOffset = 0;
-let hiz = 2.5;
+let hiz = 5.5;
 let oyunBasladi = false;
 
   function cizZeminCizgileri() {
@@ -464,8 +464,8 @@ let oyunBasladi = false;
 
     zeminOffset += hiz;
 
-    if (hiz < 7) {
-      hiz += 0.002;
+    if (hiz < 13) {
+      hiz += 0.006;
     }
 
     requestAnimationFrame(oyunDongu);
