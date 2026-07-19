@@ -236,13 +236,14 @@
 
   <!-- SON BLOG YAZILARI -->
   <section class="max-w-6xl mx-auto px-6 py-8">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-heading text-2xl font-bold">Son Blog Yazıları</h2>
-      <a href="blog.html" class="text-accent text-sm font-semibold">Blog'u Gör →</a>
-    </div>
+    <h2 class="text-heading text-2xl font-bold mb-6">Son Blog Yazıları</h2>
 
-    <div id="sonBlogYazilari" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <p class="text-text">Yükleniyor...</p>
+    <div id="sonBlogYazilari" class="grid grid-cols-3 gap-2 md:gap-6"></div>
+
+    <div class="text-center mt-6">
+      <a href="blog.html" class="inline-block bg-accent text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition text-sm">
+        Blog'u Gör →
+      </a>
     </div>
   </section>
   
@@ -348,12 +349,12 @@
       kart.href = link;
       kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
       kart.innerHTML = `
-        <div class="h-40 bg-bg/50">
+        <div class="h-24 md:h-40 bg-bg/50">
           <img src="${item.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
         </div>
-        <div class="p-5">
-          <span class="text-heading text-xs font-semibold">${item.kategori}</span>
-          <h3 class="text-heading text-lg font-bold mt-1 mb-2">${item.baslik}</h3>
+        <div class="p-2 md:p-5">
+          <span class="text-heading text-[10px] md:text-xs font-semibold hidden md:block">${item.kategori}</span>
+          <h3 class="text-heading text-sm md:text-lg font-bold mt-1 mb-1 md:mb-2">${item.baslik}</h3>
           <p class="text-text text-sm hidden md:block">${item.ozet}</p>
         </div>
       `;
