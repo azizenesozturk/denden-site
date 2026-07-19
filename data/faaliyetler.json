@@ -1,21 +1,70 @@
 [
   {
+    "id": "karasu-selalesi-2026",
+    "tarih": "2026-04-17",
+    "rota": "Karasu Şelalesi",
+    "bolge": "Osmaniye/Düziçi",
+    "zorluk": "Orta",
+    "ekip": [
+      "Ben",
+      "Soner"
+    ],
+    "havaDurumu": "Güneşli, yolun sonunda sağanak yağış",
+    "ekipman": [
+      "Çanta",
+      "Yiyecekler"
+    ],
+    "kapak": "images/faaliyetler/karasu-selalesi-2026/kapak.jpeg",
+    "detaylar": "Otobüsle yaklaşık bir saatte Düziçi’ne varıp, oradan bir saatlik yürüyüşün ardından Karasu Şelalesi’ne ulaşacağız.",
+    "ani": "Yola çıktığımda o kadar yolu gerçekten yürüyebileceğimi düşünmüyordum. Ama bir dostla yürürken zaman nasıl geçiyor anlamıyor insan. Yol boyunca planda olmayan pek çok yeni yer keşfettik; bu yolculuk beni beklediğimden çok daha fazla tatmin etti. Eline sağlık Soner, sen olmasan tek başıma gider miydim bilmiyorum.",
+    "sonBasvuruTarihi": "",
+    "fotograflar": [
+      {
+        "url": "images/faaliyetler/karasu-selalesi-2026/foto1.jpeg",
+        "aciklama": ""
+      },
+      {
+        "url": "images/faaliyetler/karasu-selalesi-2026/foto2.jpeg",
+        "aciklama": ""
+      },
+      {
+        "url": "images/faaliyetler/karasu-selalesi-2026/foto3.jpeg",
+        "aciklama": ""
+      }
+    ]
+  },
+  {
     "id": "yilan-kalesi-2026",
     "tarih": "2026-03-13",
     "rota": "Yılan Kalesi",
     "bolge": "Adana/Ceyhan",
     "zorluk": "Orta",
-    "ekip": ["Ben (tek gittim)"],
+    "ekip": [
+      "Ben (tek gittim)"
+    ],
     "havaDurumu": "Güneşli, bulutlu",
-    "ekipman": ["Çanta", "Termos", "Yiyecekler"],
+    "ekipman": [
+      "Çanta",
+      "Termos",
+      "Yiyecekler"
+    ],
     "kapak": "images/faaliyetler/yilan-kalesi-2026/kapak.jpeg",
     "detaylar": "Adana - Ceyhan karayolu üzerinden, tabelaları takip ederek ulaşılıyor. Yürüyüş yaklaşık 1.5 saat sürüyor. Rota orta zorlukta, patika kısmen belirgin.",
     "ani": "Yılan Kalesi'ne tek başıma çıktım. Adana/Ceyhan bölgesindeki bu tarihi kale, hem doğa yürüyüşü hem de tarih meraklıları için güzel bir rota.",
     "sonBasvuruTarihi": "",
     "fotograflar": [
-      { "url": "images/faaliyetler/yilan-kalesi-2026/foto1.jpeg", "aciklama": "" },
-      { "url": "images/faaliyetler/yilan-kalesi-2026/foto2.jpeg", "aciklama": "" },
-      { "url": "images/faaliyetler/yilan-kalesi-2026/foto3.jpeg", "aciklama": "" }
+      {
+        "url": "images/faaliyetler/yilan-kalesi-2026/foto1.jpeg",
+        "aciklama": ""
+      },
+      {
+        "url": "images/faaliyetler/yilan-kalesi-2026/foto2.jpeg",
+        "aciklama": ""
+      },
+      {
+        "url": "images/faaliyetler/yilan-kalesi-2026/foto3.jpeg",
+        "aciklama": ""
+      }
     ]
   }
 ]

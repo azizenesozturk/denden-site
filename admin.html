@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DenDen</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A2626',
+            card: '#2C3E3E',
+            text: '#C1AB85',
+            heading: '#7BA7AF',
+            accent: '#F3701E',
+            highlight: '#B2E50F',
+            danger: '#C94E44',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-bg text-text">
+
+  <header class="bg-card sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="images/logo.png" alt="DenDen" class="h-12 w-auto">
+      <span class="text-heading text-3xl font-bold">DenDen</span>
+    </a>
+
+    <!-- Masaüstü Menü (mobilde gizli) -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+      <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+      <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+      <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+    <!-- Masaüstü Sosyal İkonlar -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text hover:text-accent transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button id="menuAcBtn" class="md:hidden text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- MOBİL TAM EKRAN MENÜ (başlangıçta gizli) -->
+<div id="mobilMenu" class="hidden fixed inset-0 bg-bg z-50 flex-col">
+  <div class="flex justify-end p-6">
+    <button id="menuKapatBtn" class="text-text">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- Sosyal İkonlar -->
+  <div class="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/denden_n_?igsh=NjNlenZxNm04djBu" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@dendentime" target="_blank" class="text-text">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
+    </a>
+  </div>
+
+  <!-- Menü Linkleri -->
+  <nav class="flex flex-col items-center gap-6 text-xl">
+    <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+    <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+    <a href="duyuru.html" class="text-text hover:text-accent transition">Duyuru</a>
+    <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+    <a href="calismalarim.html" class="text-text hover:text-accent transition">Çalışmalarım</a>
+    <a href="oyun.html" class="text-text hover:text-accent transition">Oyun</a>
+    <a href="bagis.html" class="text-text hover:text-accent transition">Bağış</a>
+    <a href="hakkimda.html" class="text-text hover:text-accent transition">Hakkımda</a>
+    <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+  </nav>
+</div>
+
+<main>
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-heading text-3xl font-bold mb-6">İçerik Yönetimi</h1>
+
+    <div class="flex gap-3 mb-8 flex-wrap">
+      <button class="tabBtn bg-accent text-white px-4 py-2 rounded-lg font-semibold" data-tab="faaliyet">Faaliyet</button>
+      <button class="tabBtn bg-card text-text px-4 py-2 rounded-lg font-semibold" data-tab="blog">Blog</button>
+      <button class="tabBtn bg-card text-text px-4 py-2 rounded-lg font-semibold" data-tab="duyuru">Duyuru</button>
+      <button class="tabBtn bg-card text-text px-4 py-2 rounded-lg font-semibold" data-tab="calisma">Çalışmalarım</button>
+    </div>
+
+    <!-- FAALİYET FORMU -->
+    <div id="tab-faaliyet" class="space-y-3">
+      <input id="f_id" placeholder="ID (örn: yilan-kalesi-2026, boşluksuz-küçük harf-tire ile)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_tarih" type="date" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_rota" placeholder="Rota / Zirve Adı" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_bolge" placeholder="Bölge (örn: Adana/Ceyhan)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <select id="f_zorluk" class="w-full bg-card text-text rounded-lg px-4 py-3">
+        <option value="Kolay">Kolay</option>
+        <option value="Orta" selected>Orta</option>
+        <option value="Zor">Zor</option>
+      </select>
+      <input id="f_ekip" placeholder="Ekip (virgülle ayır: Ben, Arkadaşım)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_hava" placeholder="Hava Durumu" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_ekipman" placeholder="Ekipman (virgülle ayır: Kask, İp)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_klasor" placeholder="Fotoğraf klasörü adı (örn: yilan-kalesi-2026)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_fotosayisi" type="number" placeholder="Kaç foto var (foto1, foto2... otomatik adlandırılır)" value="3" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <textarea id="f_detaylar" placeholder="Detaylar (nasıl gidilir, süre vb.)" rows="2" class="w-full bg-card text-text rounded-lg px-4 py-3"></textarea>
+      <textarea id="f_ani" placeholder="Anılarım" rows="4" class="w-full bg-card text-text rounded-lg px-4 py-3"></textarea>
+      <input id="f_sonbasvuru" type="date" placeholder="Son başvuru tarihi (opsiyonel)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <button onclick="faaliyetOlustur()" class="bg-highlight text-bg font-bold px-6 py-3 rounded-lg w-full">Faaliyeti Oluştur ve İndir</button>
+    </div>
+
+    <!-- BLOG FORMU -->
+    <div id="tab-blog" class="space-y-3 hidden">
+      <input id="b_id" placeholder="ID (örn: kariyerim-3-yil)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="b_tarih" type="date" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="b_kategori" placeholder="Kategori (örn: Yazılım, Düşünceler)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="b_baslik" placeholder="Başlık" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="b_ozet" placeholder="Kısa özet" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="b_kapak" placeholder="Kapak görsel yolu (örn: images/blog/kapak.jpg)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <textarea id="b_icerik" placeholder="İçerik (Markdown desteklenir: ![açıklama](resim-yolu))" rows="6" class="w-full bg-card text-text rounded-lg px-4 py-3"></textarea>
+      <button onclick="blogOlustur()" class="bg-highlight text-bg font-bold px-6 py-3 rounded-lg w-full">Blog Yazısını Oluştur ve İndir</button>
+    </div>
+
+    <!-- DUYURU FORMU -->
+    <div id="tab-duyuru" class="space-y-3 hidden">
+      <input id="d_tarih" type="date" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="d_baslik" placeholder="Duyuru Başlığı" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <textarea id="d_metin" placeholder="Duyuru Metni" rows="3" class="w-full bg-card text-text rounded-lg px-4 py-3"></textarea>
+      <button onclick="duyuruOlustur()" class="bg-highlight text-bg font-bold px-6 py-3 rounded-lg w-full">Duyuruyu Oluştur ve İndir</button>
+    </div>
+
+    <!-- ÇALIŞMALARIM FORMU -->
+    <div id="tab-calisma" class="space-y-3 hidden">
+      <input id="c_ad" placeholder="Proje Adı" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="c_kisaaciklama" placeholder="Kısa Açıklama (1 cümle)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <textarea id="c_aciklama" placeholder="Detaylı Açıklama" rows="3" class="w-full bg-card text-text rounded-lg px-4 py-3"></textarea>
+      <input id="c_link" placeholder="Proje Linki (https://...)" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <button onclick="calismaOlustur()" class="bg-highlight text-bg font-bold px-6 py-3 rounded-lg w-full">Projeyi Oluştur ve İndir</button>
+    </div>
+
+    <p id="adminMesaj" class="text-highlight font-semibold mt-4"></p>
+  </section>
+</main>
+
+<footer class="bg-card mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-center">
+
+    <!-- Hızlı Linkler -->
+    <nav class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href="index.html" class="text-text hover:text-accent transition">Ana Sayfa</a>
+      <a href="faaliyetler.html" class="text-text hover:text-accent transition">Faaliyetler</a>
+      <a href="blog.html" class="text-text hover:text-accent transition">Blog</a>
+      <a href="iletisim.html" class="text-text hover:text-accent transition">İletişim</a>
+    </nav>
+
+  </div>
+
+  <!-- Telif Hakkı -->
+  <div class="text-center text-text/60 text-xs pb-6">
+    © 2026 DenDen. Tüm hakları saklıdır.
+  </div>
+</footer>
+
+<script>
+
+  
+  const menuAcBtn = document.getElementById('menuAcBtn');
+  const menuKapatBtn = document.getElementById('menuKapatBtn');
+  const mobilMenu = document.getElementById('mobilMenu');
+
+  menuAcBtn.addEventListener('click', () => {
+    mobilMenu.classList.remove('hidden');
+    mobilMenu.classList.add('flex');
+  });
+
+  menuKapatBtn.addEventListener('click', () => {
+    mobilMenu.classList.add('hidden');
+    mobilMenu.classList.remove('flex');
+  });
+
+  document.querySelectorAll('.tabBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tabBtn').forEach(b => { b.classList.remove('bg-accent','text-white'); b.classList.add('bg-card','text-text'); });
+      btn.classList.remove('bg-card','text-text'); btn.classList.add('bg-accent','text-white');
+      ['faaliyet','blog','duyuru','calisma'].forEach(t => document.getElementById('tab-'+t).classList.add('hidden'));
+      document.getElementById('tab-'+btn.dataset.tab).classList.remove('hidden');
+    });
+  });
+
+  function indir(dosyaAdi, veri) {
+    const blob = new Blob([JSON.stringify(veri, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = dosyaAdi;
+    a.click();
+    URL.revokeObjectURL(url);
+    document.getElementById('adminMesaj').textContent = `${dosyaAdi} indirildi. data/ klasörüne sürükleyip üzerine yaz.`;
+  }
+
+  function faaliyetOlustur() {
+    const klasor = document.getElementById('f_klasor').value.trim();
+    const fotoSayisi = parseInt(document.getElementById('f_fotosayisi').value) || 0;
+    const fotograflar = [];
+    for (let i = 1; i <= fotoSayisi; i++) {
+      fotograflar.push({ url: `images/faaliyetler/${klasor}/foto${i}.jpeg`, aciklama: "" });
+    }
+
+    const yeniKayit = {
+      id: document.getElementById('f_id').value.trim(),
+      tarih: document.getElementById('f_tarih').value,
+      rota: document.getElementById('f_rota').value,
+      bolge: document.getElementById('f_bolge').value,
+      zorluk: document.getElementById('f_zorluk').value,
+      ekip: document.getElementById('f_ekip').value.split(',').map(s => s.trim()).filter(Boolean),
+      havaDurumu: document.getElementById('f_hava').value,
+      ekipman: document.getElementById('f_ekipman').value.split(',').map(s => s.trim()).filter(Boolean),
+      kapak: `images/faaliyetler/${klasor}/kapak.jpeg`,
+      detaylar: document.getElementById('f_detaylar').value,
+      ani: document.getElementById('f_ani').value,
+      sonBasvuruTarihi: document.getElementById('f_sonbasvuru').value || "",
+      fotograflar: fotograflar
+    };
+
+    fetch('data/faaliyetler.json').then(r => r.json()).then(mevcut => {
+      mevcut.unshift(yeniKayit);
+      indir('faaliyetler.json', mevcut);
+    }).catch(() => indir('faaliyetler.json', [yeniKayit]));
+  }
+
+  function blogOlustur() {
+    const yeniKayit = {
+      id: document.getElementById('b_id').value.trim(),
+      tarih: document.getElementById('b_tarih').value,
+      kategori: document.getElementById('b_kategori').value,
+      baslik: document.getElementById('b_baslik').value,
+      ozet: document.getElementById('b_ozet').value,
+      kapak: document.getElementById('b_kapak').value,
+      icerik: document.getElementById('b_icerik').value
+    };
+
+    fetch('data/blog.json').then(r => r.json()).then(mevcut => {
+      mevcut.unshift(yeniKayit);
+      indir('blog.json', mevcut);
+    }).catch(() => indir('blog.json', [yeniKayit]));
+  }
+
+  function duyuruOlustur() {
+    const yeniKayit = {
+      tarih: document.getElementById('d_tarih').value,
+      baslik: document.getElementById('d_baslik').value,
+      metin: document.getElementById('d_metin').value
+    };
+
+    fetch('data/duyuru.json').then(r => r.json()).then(mevcut => {
+      mevcut.unshift(yeniKayit);
+      indir('duyuru.json', mevcut);
+    }).catch(() => indir('duyuru.json', [yeniKayit]));
+  }
+  function calismaOlustur() {
+    const yeniKayit = {
+      ad: document.getElementById('c_ad').value,
+      kisaAciklama: document.getElementById('c_kisaaciklama').value,
+      aciklama: document.getElementById('c_aciklama').value,
+      link: document.getElementById('c_link').value
+    };
+
+    fetch('data/calismalarim.json').then(r => r.json()).then(mevcut => {
+      mevcut.unshift(yeniKayit);
+      indir('calismalarim.json', mevcut);
+    }).catch(() => indir('calismalarim.json', [yeniKayit]));
+  }
+</script>
+
+</body>
+</html>
