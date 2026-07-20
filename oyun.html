@@ -193,18 +193,14 @@ kanatResmi.src = 'images/kanat.png';
     });
   }
 
-  function agaclariGuncelle() {
-    // Yeni ağaç oluştur (rastgele aralıklarla)
-    sonrakiAgacSayaci--;
+  function agaclariGuncelle(delta) {
+    sonrakiAgacSayaci -= delta;
     if (sonrakiAgacSayaci <= 0) {
       agacOlustur();
-      sonrakiAgacSayaci = 80 + Math.random() * 80; // 80-160 frame arası bekle
+      sonrakiAgacSayaci = 80 + Math.random() * 80;
     }
 
-    // Ağaçları hareket ettir
-    agaclar.forEach(a => a.x -= hiz);
-
-    // Ekrandan çıkanları sil
+    agaclar.forEach(a => a.x -= hiz * delta);
     agaclar = agaclar.filter(a => a.x + a.w > 0);
   }
 
@@ -233,14 +229,14 @@ kanatResmi.src = 'images/kanat.png';
     });
   }
 
-  function powerUplariGuncelle() {
-    sonrakiPowerUpSayaci--;
+  function powerUplariGuncelle(delta) {
+    sonrakiPowerUpSayaci -= delta;
     if (sonrakiPowerUpSayaci <= 0) {
       powerUpOlustur();
       sonrakiPowerUpSayaci = 250 + Math.random() * 200;
     }
 
-    powerUplar.forEach(p => p.x -= hiz);
+    powerUplar.forEach(p => p.x -= hiz * delta);
     powerUplar = powerUplar.filter(p => p.x + p.w > 0);
 
     // Karakterle çarpışma (toplama)
@@ -314,8 +310,8 @@ kanatResmi.src = 'images/kanat.png';
     return false;
   }
 
-  const yerCekimi = 0.60;
-const ziplamaGucu = -13;
+  const yerCekimi = 0.7;
+  const ziplamaGucu = -14;
   const zeminSeviyesi = zeminY - 60; // karakterin yerde durduğu y konumu
 
   // SKOR
@@ -370,19 +366,18 @@ let oyunBasladi = false;
     }
   }
 
-  function karakterFizik() {
+  function karakterFizik(delta) {
     if (ucmaAktif) {
-      // Uçarken havada süzülür, hafifçe yukarı-aşağı gider
       karakter.y = zeminSeviyesi - 80 + Math.sin(zeminOffset * 0.1) * 12;
       karakter.ySpeed = 0;
 
-      ucmaSuresi--;
+      ucmaSuresi -= delta;
       if (ucmaSuresi <= 0) {
         ucmaAktif = false;
       }
     } else {
-      karakter.ySpeed += yerCekimi;
-      karakter.y += karakter.ySpeed;
+      karakter.ySpeed += yerCekimi * delta;
+      karakter.y += karakter.ySpeed * delta;
 
       if (karakter.y >= zeminSeviyesi) {
         karakter.y = zeminSeviyesi;
@@ -418,8 +413,15 @@ let oyunBasladi = false;
     document.getElementById('baslaIkon').classList.add('hidden');
   }
 
-  function oyunDongu() {
+  let sonZaman = performance.now();
+
+  function oyunDongu(simdikiZaman) {
     if (oyunBitti) return;
+
+    if (!simdikiZaman) simdikiZaman = performance.now();
+    let delta = (simdikiZaman - sonZaman) / (1000 / 60); // 60 FPS'e göre normalize
+    if (delta > 3) delta = 3; // sekme arkaplana atılıp geri gelince aşırı sıçrama olmasın
+    sonZaman = simdikiZaman;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -431,16 +433,16 @@ let oyunBasladi = false;
     
     cizZemin();
     cizZeminCizgileri();
-    karakterFizik();
-    agaclariGuncelle();
-    powerUplariGuncelle();
+    karakterFizik(delta);
+    agaclariGuncelle(delta);
+    powerUplariGuncelle(delta);
     cizAgaclar();
     cizPowerUplar();
     cizKarakter();
     cizSkor();
     cizPowerUpDurumu();
 
-    skor += 0.15; // her frame'de biraz skor ekle (mesafe bazlı)
+    skor += 0.15 * delta;
 
     if (carpismaKontrol()) {
       oyunBitti = true;
@@ -468,10 +470,10 @@ let oyunBasladi = false;
 
     zeminOffset += hiz;
 
-    zeminOffset += hiz;
+    zeminOffset += hiz * delta;
 
-    if (hiz < 16) {
-      hiz += 0.06;
+    if (hiz < 11) {
+      hiz += 0.03 * delta;
     }
 
     requestAnimationFrame(oyunDongu);
