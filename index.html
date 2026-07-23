@@ -61,6 +61,13 @@
 </head>
 <body class="bg-bg text-text">
 
+<!-- AÇILIŞ EKRANI (SPLASH) -->
+<div id="splashEkrani" class="fixed inset-0 bg-bg z-[100] flex items-center justify-center">
+  <video id="splashVideo" class="max-w-xs md:max-w-md" autoplay muted playsinline>
+    <source src="images/logo-intro.mp4" type="video/mp4">
+  </video>
+</div>
+
   <header class="bg-card sticky top-0 z-50 shadow-lg">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     
@@ -285,6 +292,27 @@
 </footer>
 
 <script>
+
+  // AÇILIŞ EKRANI — SADECE İLK GİRİŞTE (SESSION BAŞINA BİR KERE)
+  const splash = document.getElementById('splashEkrani');
+  const splashVideo = document.getElementById('splashVideo');
+
+  if (sessionStorage.getItem('splashGosterildi')) {
+    // Daha önce gösterildiyse direkt gizle
+    splash.style.display = 'none';
+  } else {
+    sessionStorage.setItem('splashGosterildi', 'true');
+
+    // Video bitince veya en fazla 4 saniye sonra splash'i kaldır
+    const splashKaldir = () => {
+      splash.style.transition = 'opacity 0.5s';
+      splash.style.opacity = '0';
+      setTimeout(() => { splash.style.display = 'none'; }, 500);
+    };
+
+    splashVideo.addEventListener('ended', splashKaldir);
+    setTimeout(splashKaldir, 4000); // video 4 saniyeden uzunsa yine de devam etsin
+  }
 
   // ANASAYFA — DUYURU BLOĞU
   fetch('data/duyuru.json')
