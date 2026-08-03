@@ -1,5 +1,11 @@
 [
   {
+    "ad": "Rota App",
+    "kisaAciklama": "Konum ve tarihe göre yapay zeka destekli hava durumu ve seyahat tavsiyesi.",
+    "aciklama": "Gideceğin yeri, tarihi ve aktiviteni (kamp, yüzme, yürüyüş, tırmanış vb.) seçtiğinde gerçek hava durumu verisini çekip yapay zekaya yorumlatan, 'git / dikkatli git / gitme' şeklinde net tavsiyeler üreten bir web uygulaması. React, TypeScript ve Google Gemini API ile geliştirildi.",
+    "link": "https://rota-app-alpha.vercel.app/"
+  },
+  {
     "ad": "Renkli Testler",
     "kisaAciklama": "Kişilik testleri ve arkadaşlarla oynanan tahmin oyunları platformu.",
     "aciklama": "Kullanıcıların kişilik testleri yapıp kendileri hakkında analiz sonuçları görebildiği, ayrıca arkadaşlarıyla birlikte tahmin oyunları oynayarak eğlenceli vakit geçirebildiği bir web uygulaması.",
