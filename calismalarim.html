@@ -160,12 +160,17 @@
         const kart = document.createElement('a');
         kart.href = p.link;
         kart.target = '_blank';
-        kart.className = 'bg-card rounded-xl p-6 hover:bg-card/70 transition flex flex-col';
+        kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition flex flex-col';
         kart.innerHTML = `
-          <h3 class="text-heading text-lg font-bold mb-2">${p.ad}</h3>
-          <p class="text-accent text-sm font-semibold mb-3">${p.kisaAciklama}</p>
-          <p class="text-text text-sm mb-4 flex-grow">${p.aciklama}</p>
-          <span class="text-heading text-sm font-semibold">Projeye Git →</span>
+          <div class="h-40 bg-bg/50">
+            <img src="${p.gorsel || ''}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-heading text-lg font-bold mb-2">${p.ad}</h3>
+            <p class="text-accent text-sm font-semibold mb-3">${p.kisaAciklama}</p>
+            <p class="text-text text-sm mb-4 flex-grow">${p.aciklama}</p>
+            <span class="text-heading text-sm font-semibold">Projeye Git →</span>
+          </div>
         `;
         grid.appendChild(kart);
       });
