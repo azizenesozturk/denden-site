@@ -18,7 +18,7 @@
     "link": "https://ozturkazizenes.pythonanywhere.com/"
   },
   {
-    "ad": "AI Stok Yönetim Sistemi",
+    "ad": "Stok Yönetim Sistemi",
     "kisaAciklama": "Yapay zeka destekli talep tahmini ve otomatik sipariş önerisi sunan envanter yönetim sistemi.",
     "aciklama": "Ürün, kategori ve tedarikçi yönetiminin yanında geçmiş satış verisine dayalı AI talep tahmini, tedarikçi teslimat süresine göre otomatik sipariş önerisi ve z-skoru yöntemiyle anomali tespiti içeren modern bir sistem.",
     "link": "https://ai-stok-yonetim-sistemi.vercel.app/products"
