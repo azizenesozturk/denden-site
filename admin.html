@@ -20,6 +20,9 @@
             accent: '#F3701E',
             highlight: '#B2E50F',
             danger: '#C94E44',
+            kolay: '#88FF5F',
+            orta: '#DBEE00',
+            zor: '#ED254E',
           }
         }
       }
@@ -115,6 +118,7 @@
     <div id="tab-faaliyet" class="space-y-3">
       <input id="f_id" placeholder="ID (örn: yilan-kalesi-2026, boşluksuz-küçük harf-tire ile)" class="w-full bg-card text-text rounded-lg px-4 py-3">
       <input id="f_tarih" type="date" class="w-full bg-card text-text rounded-lg px-4 py-3">
+      <input id="f_saat" placeholder="Saat (örn: 09:00, opsiyonel)" class="w-full bg-card text-text rounded-lg px-4 py-3">
       <input id="f_rota" placeholder="Rota / Zirve Adı" class="w-full bg-card text-text rounded-lg px-4 py-3">
       <input id="f_bolge" placeholder="Bölge (örn: Adana/Ceyhan)" class="w-full bg-card text-text rounded-lg px-4 py-3">
       <select id="f_zorluk" class="w-full bg-card text-text rounded-lg px-4 py-3">
@@ -232,6 +236,7 @@
     const yeniKayit = {
       id: document.getElementById('f_id').value.trim(),
       tarih: document.getElementById('f_tarih').value,
+      saat: document.getElementById('f_saat').value,
       rota: document.getElementById('f_rota').value,
       bolge: document.getElementById('f_bolge').value,
       zorluk: document.getElementById('f_zorluk').value,

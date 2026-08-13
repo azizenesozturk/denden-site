@@ -20,6 +20,9 @@
             accent: '#F3701E',
             highlight: '#B2E50F',
             danger: '#C94E44',
+            kolay: '#88FF5F',
+            orta: '#DBEE00',
+            zor: '#ED254E',
           }
         }
       }
@@ -162,12 +165,12 @@
 
       const grid = document.getElementById('faaliyetGrid');
       
-      const alevIkon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="inline -mt-0.5 mr-1"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-2-1-3-1-3 2 1 3 4 3 6a6 6 0 0 1-12 0c0-4 3-6 3-10 1 1 2 2 3 0Z"/></svg>`;
+      
 
       faaliyetler.forEach(f => {
-        const zorlukRenk = f.zorluk === 'Kolay' ? 'bg-highlight text-bg' 
-                          : f.zorluk === 'Zor' ? 'bg-danger text-white' 
-                          : 'bg-accent text-white';
+        const zorlukRenk = f.zorluk === 'Kolay' ? 'bg-kolay text-bg' 
+                          : f.zorluk === 'Zor' ? 'bg-zor text-white' 
+                          : 'bg-orta text-bg';
 
         const kart = document.createElement('a');
         kart.href = `faaliyet-detay.html?id=${f.id}`;
@@ -177,10 +180,10 @@
             <img src="${f.kapak}" alt="${f.rota}" class="w-full h-full object-cover" onerror="this.style.display='none'">
           </div>
           <div class="p-5">
-            <span class="${zorlukRenk} text-xs font-semibold px-3 py-1 rounded-full">${alevIkon}Zorluk: ${f.zorluk}</span>
+            <span class="${zorlukRenk} text-xs font-semibold px-3 py-1 rounded-full">Zorluk: ${f.zorluk}</span>
             <h3 class="text-heading text-lg font-bold mt-3 mb-1">${f.rota}</h3>
-            <p class="text-text text-sm mb-2">${f.bolge} — ${f.tarih}</p>
-            ${f.detaylar ? `<p class="text-highlight text-sm">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
+            <p class="text-highlight text-sm mb-2">${f.bolge} — ${f.tarih}${f.saat ? ' · ' + f.saat : ''}</p>
+            ${f.detaylar ? `<p class="text-text text-sm">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
           </div>
         `;
         grid.appendChild(kart);

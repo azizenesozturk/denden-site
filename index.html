@@ -30,9 +30,10 @@
             <img src="${f.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
           </div>
           <div class="p-6 md:w-1/2 flex flex-col justify-center">
-            <span class="text-highlight text-xs font-semibold mb-2">${f.zorluk.toUpperCase()} ZORLUK</span>
+            <span class="${f.zorluk === 'Kolay' ? 'bg-kolay text-bg' : f.zorluk === 'Zor' ? 'bg-zor text-white' : 'bg-orta text-bg'} text-xs font-semibold px-3 py-1 rounded-full mb-2 w-fit">Zorluk: ${f.zorluk}</span>
             <h3 class="text-heading text-xl font-bold mb-2">${f.rota}</h3>
-            <p class="text-text text-sm mb-4">${f.bolge} — ${ozet}</p>
+            <p class="text-highlight text-sm mb-1">${f.bolge} — ${f.tarih}${f.saat ? ' · ' + f.saat : ''}</p>
+            <p class="text-text text-sm mb-4">${ozet}</p>
             <span class="text-accent text-sm font-semibold">Devamını Oku →</span>
           </div>
         </a>
@@ -53,6 +54,9 @@
             accent: '#F3701E',
             highlight: '#B2E50F',
             danger: '#C94E44',
+            kolay: '#88FF5F',
+            orta: '#DBEE00',
+            zor: '#ED254E',
           }
         }
       }
@@ -157,12 +161,12 @@
 
     <!-- Koyu Yarı Saydam Katman -->
     <div class="absolute inset-0 bg-bg/40 flex items-start justify-start">
-      <div class="text-left px-8 py-8 md:px-16 md:py-12 max-w-xl">
-        <h1 class="text-heading text-3xl md:text-5xl font-bold mb-3">
+      <div class="text-left px-4 py-4 md:px-16 md:py-12 max-w-[75%] md:max-w-xl">
+        <h1 class="text-heading text-xl md:text-5xl font-bold mb-1 md:mb-3">
           Hoş geldin ;)
         </h1>
-        <p class="text-text text-base md:text-lg">
-          Kendi grubumuzla tırmanış, doğa yürüyüşü ve kampçılık etkinlikleri yapıyoruz; bize katıl.
+        <p class="text-text text-xs md:text-lg">
+          Keşfetmeye hazır mısın? O zaman bana katıl.
         </p>
       </div>
     </div>
