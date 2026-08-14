@@ -355,6 +355,9 @@ kanatResmi.src = 'images/kanat.png';
 
   let zeminOffset = 0;
 let hiz = 5.5;
+const baslangicHizi = 5.5;
+const maksimumHiz = 22;
+const hizKatsayisi = 0.012; // skor arttıkça hız bununla orantılı artar
 let oyunBasladi = false;
 
   function cizZeminCizgileri() {
@@ -446,6 +449,7 @@ let oyunBasladi = false;
     cizPowerUpDurumu();
 
     skor += 0.15 * delta;
+    hiz = Math.min(baslangicHizi + skor * hizKatsayisi, maksimumHiz);
 
     if (carpismaKontrol()) {
       oyunBitti = true;
@@ -467,17 +471,7 @@ let oyunBasladi = false;
       return;
     }
 
-    zeminOffset += hiz;
-
-    zeminOffset += hiz;
-
-    zeminOffset += hiz;
-
     zeminOffset += hiz * delta;
-
-    if (hiz < 11) {
-      hiz += 0.03 * delta;
-    }
 
     requestAnimationFrame(oyunDongu);
   }
