@@ -107,11 +107,11 @@
 <main>
 
   <section class="max-w-4xl mx-auto px-6 py-12">
-    <h1 class="text-heading text-4xl font-bold mb-8 text-center">Duyurular</h1>
-    <div id="duyuruIcerik">
-      <p class="text-text">Yükleniyor...</p>
-    </div>
-  </section>
+  <h1 class="text-heading text-4xl font-bold mb-8 text-center">Duyurular</h1>
+  <div id="duyuruIcerik">
+    <p class="text-text">Yükleniyor...</p>
+  </div>
+</section>
 
 </main>
 
@@ -162,28 +162,52 @@
       const container = document.getElementById('duyuruIcerik');
 
       let html = `
-        <div class="bg-card border-2 border-highlight rounded-xl p-6 mb-10">
-          <span class="bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full">GÜNCEL</span>
-          <h2 class="text-heading text-2xl font-bold mt-4 mb-2">${guncel.baslik}</h2>
-          <p class="text-text text-sm mb-2">${guncel.tarih}</p>
-          <p class="text-text">${guncel.metin}</p>
-        </div>
-      `;
+  <div class="bg-card border-2 border-highlight rounded-xl p-6 mb-10">
+    <div class="flex items-start justify-between gap-3 mb-1">
+      <h2 class="text-heading text-2xl font-bold">${guncel.baslik}</h2>
+      <span class="bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full shrink-0">GÜNCEL</span>
+    </div>
+    <p class="text-text mb-2">${guncel.metin}</p>
+    <div class="flex flex-wrap items-center gap-3 text-highlight text-sm">
+      <span class="flex items-center gap-1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+        ${guncel.tarih}
+      </span>
+      ${guncel.saat ? `
+      <span class="flex items-center gap-1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
+        ${guncel.saat}
+      </span>
+      ` : ''}
+    </div>
+  </div>
+`;
 
-      if (eskiler.length > 0) {
-        html += `<h3 class="text-heading text-lg font-bold mb-4">Eski Duyurular</h3>`;
-        html += `<div class="space-y-4">`;
-        eskiler.forEach(d => {
-          html += `
-            <div class="bg-card/50 rounded-lg p-4">
-              <p class="text-text text-xs mb-1">${d.tarih}</p>
-              <h4 class="text-heading font-semibold">${d.baslik}</h4>
-              <p class="text-text text-sm mt-1">${d.metin}</p>
-            </div>
-          `;
-        });
-        html += `</div>`;
-      }
+if (eskiler.length > 0) {
+  html += `<h3 class="text-heading text-lg font-bold mb-4">Eski Duyurular</h3>`;
+  html += `<div class="space-y-4">`;
+  eskiler.forEach(d => {
+    html += `
+      <div class="bg-card/50 rounded-lg p-4">
+        <h4 class="text-heading font-semibold mb-1">${d.baslik}</h4>
+        <p class="text-text text-sm mb-2">${d.metin}</p>
+        <div class="flex flex-wrap items-center gap-3 text-highlight text-xs">
+          <span class="flex items-center gap-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+            ${d.tarih}
+          </span>
+          ${d.saat ? `
+          <span class="flex items-center gap-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
+            ${d.saat}
+          </span>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+}
 
       container.innerHTML = html;
     })
