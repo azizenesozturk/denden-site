@@ -117,6 +117,10 @@
     </div>
 
     <p class="text-text text-sm mt-4">Zıplamak için BOŞLUK tuşuna veya ekrana dokun.</p>
+
+    <button id="ziplaBtn" class="md:hidden w-full mt-4 py-6 bg-accent text-white text-lg font-bold rounded-xl active:opacity-70 select-none">
+      ZIPLA
+    </button>
   </section>
 
 </main>
@@ -159,18 +163,33 @@
   const canvas = document.getElementById('oyunCanvas');
   const ctx = canvas.getContext('2d');
   ctx.imageSmoothingEnabled = false;
-  const zeminY = 400; // zeminin y konumu
+  const zeminY = 415; // zeminin y konumu
   const karakterResmi = new Image();
 karakterResmi.src = 'images/karakter.png';
 
 const agacResmi = new Image();
 agacResmi.src = 'images/agac.png';
 
+let agacOrani = 36 / 55; // resim yüklenene kadar geçici oran
+agacResmi.onload = () => {
+  agacOrani = agacResmi.naturalWidth / agacResmi.naturalHeight;
+};
+
 const kalkanResmi = new Image();
 kalkanResmi.src = 'images/kalkan.png';
 
 const kanatResmi = new Image();
 kanatResmi.src = 'images/kanat.png';
+
+const sabahResmi = new Image();
+sabahResmi.src = 'images/sabah.png';
+
+const geceResmi = new Image();
+geceResmi.src = 'images/gece.png';
+
+
+
+
 
 
   const karakter = {
@@ -188,13 +207,15 @@ kanatResmi.src = 'images/kanat.png';
   let sonrakiAgacSayaci = 100; // oyun başladıktan sonra biraz bekle
 
   function agacOlustur() {
-    agaclar.push({
-      x: canvas.width,
-      y: zeminY - 55,
-      w: 36,
-      h: 55
-    });
-  }
+  const yukseklik = 55;
+  const genislik = yukseklik * agacOrani;
+  agaclar.push({
+    x: canvas.width,
+    y: zeminY - yukseklik,
+    w: genislik,
+    h: yukseklik
+  });
+}
 
   function agaclariGuncelle(delta) {
     sonrakiAgacSayaci -= delta;
@@ -431,13 +452,28 @@ let oyunBasladi = false;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (!oyunBasladi) {
+const donguIndex = Math.floor(skor / 500) % 2;
+const aktifArkaPlan = donguIndex === 0 ? sabahResmi : geceResmi;
+
+if (aktifArkaPlan.complete && aktifArkaPlan.naturalWidth > 0) {
+  ctx.drawImage(aktifArkaPlan, 0, 0, canvas.width, canvas.height);
+} else {
+  ctx.fillStyle = donguIndex === 0 ? '#DCC9A9' : '#0D131A';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+if (!oyunBasladi) {
+  cizBaslangicEkrani();
+  requestAnimationFrame(oyunDongu);
+  return;
+}
+
+if (!oyunBasladi) {
       cizBaslangicEkrani();
       requestAnimationFrame(oyunDongu);
       return;
     }
     
-    cizZemin();
     cizZeminCizgileri();
     karakterFizik(delta);
     agaclariGuncelle(delta);
@@ -505,6 +541,18 @@ let oyunBasladi = false;
   });
 
   canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (oyunBitti) {
+      window.location.reload();
+    } else if (!oyunBasladi) {
+      oyunuBaslat();
+    } else {
+      ziplat();
+    }
+  });
+
+  const ziplaBtn = document.getElementById('ziplaBtn');
+  ziplaBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
     if (oyunBitti) {
       window.location.reload();
