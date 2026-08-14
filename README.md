@@ -1,6 +1,6 @@
 # DenDen
 
-🔗 **Canlı site:** [azizenesozturk.github.io/denden-site](https://azizenesozturk.github.io/denden-site/)
+🔗 **Canlı site:** [denden.vercel.app](https://denden.vercel.app/)
 
 Kişisel portfolyo ve dağcılık/doğa keşfi günlüğü sitesi.
 
@@ -12,7 +12,7 @@ Sunucuyla uğraşmamak için sadece HTML, CSS ve JavaScript ile (statik/sunucusu
 
 ## Bölümler
 
-- **Faaliyetler** — Geçmiş rotalarım ve yaklaşan faaliyetlerim
+- **Faaliyetler** — Geçmiş rotalarım ve yaklaşan faaliyetlerim, ayrıca rotalarımı ve kaydettiğim yerleri gösteren interaktif harita
 - **Blog** — Faaliyet anıları ve yazılarım
 - **Duyuru** — Güncel duyurular
 - **Çalışmalarım** — Yazılım projelerim
@@ -23,7 +23,7 @@ Sunucuyla uğraşmamak için sadece HTML, CSS ve JavaScript ile (statik/sunucusu
 
 - HTML, CSS (Tailwind CDN), Vanilla JavaScript
 - Veri yönetimi için JSON dosyaları
-- Sunucusuz mimari — statik site olarak GitHub Pages üzerinde barındırılıyor
+- Sunucusuz mimari — statik site olarak Vercel üzerinde barındırılıyor
 
 ## İletişim
 
