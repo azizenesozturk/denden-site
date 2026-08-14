@@ -213,8 +213,9 @@
   </span>
   ` : ''}
 </div>
-            ${f.detaylar ? `<p class="text-text text-sm">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
-          </div>
+            ${f.detaylar ? `<p class="text-text text-sm mb-3">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
+<span class="text-accent text-sm font-semibold">Devamını Oku →</span>
+</div>
         `;
         grid.appendChild(kart);
       });
