@@ -39,6 +39,9 @@
 </head>
 <body class="bg-bg text-text">
 
+  <!-- OKUMA İLERLEME ÇUBUĞU -->
+<div id="okumaCubugu" class="fixed top-0 left-0 h-1 bg-accent z-[60]" style="width: 0%;"></div>
+
   <!-- HEADER -->
 <header class="bg-card sticky top-0 z-50 shadow-lg">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -115,9 +118,13 @@
 <main>
 
   <section class="max-w-3xl mx-auto px-6 py-12">
+    <div id="icindekiler" class="bg-card rounded-xl p-5 mb-8 hidden"></div>
     <div id="blogIcerik">
       <p class="text-text">Yükleniyor...</p>
     </div>
+    <div id="tepkiKutusu" class="flex gap-3 mt-8"></div>
+    <div id="oncekiSonrakiYazi" class="grid grid-cols-2 gap-4 mt-8"></div>
+    
   </section>
 
 </main>
@@ -139,27 +146,7 @@
   <div class="text-center text-text/60 text-xs pb-6">
     © 2026 DenDen. Tüm hakları saklıdır.
   </div>
-</footer>
-    <!-- Sosyal İkonlar -->
-    <div class="flex items-center gap-4">
-      <a href="#" class="text-text hover:text-accent transition">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#" class="text-text hover:text-accent transition">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 12L10.5 14V10L14 12Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z" stroke="currentColor" stroke-width="1.5"/></svg>
-      </a>
-      <a href="#" class="text-text hover:text-accent transition">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.3333 19V17.137C14.3583 16.8275 14.3154 16.5163 14.2073 16.2242C14.0993 15.9321 13.9286 15.6657 13.7067 15.4428C15.8 15.2156 18 14.4431 18 10.8989C17.9998 9.99256 17.6418 9.12101 17 8.46461C17.3039 7.67171 17.2824 6.79528 16.94 6.01739C16.94 6.01739 16.1533 5.7902 14.3333 6.97811C12.8053 6.57488 11.1947 6.57488 9.66666 6.97811C7.84666 5.7902 7.05999 6.01739 7.05999 6.01739C6.71757 6.79528 6.69609 7.67171 6.99999 8.46461C6.35341 9.12588 5.99501 10.0053 5.99999 10.9183C5.99999 14.4366 8.19999 15.2091 10.2933 15.4622C10.074 15.6829 9.90483 15.9461 9.79686 16.2347C9.68889 16.5232 9.64453 16.8306 9.66666 17.137V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.66667 17.7018C7.66667 18.3335 6 17.7018 5 15.7544" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
 
-  </div>
-
-  <!-- Telif Hakkı -->
-  <div class="text-center text-text/60 text-xs pb-6">
-    © 2026 DenDen. Tüm hakları saklıdır.
-  </div>
-</footer>
 
 <script>
   const menuAcBtn = document.getElementById('menuAcBtn');
@@ -199,16 +186,121 @@
           <img src="${b.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
         </div>
 
-        <span class="text-heading text-xs font-semibold">${b.kategori}</span>
         <h1 class="text-heading text-3xl font-bold mt-2 mb-2">${b.baslik}</h1>
-        <p class="text-text/60 text-sm mb-8">${b.tarih}</p>
+        <p class="text-highlight text-sm mb-8 flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+          ${b.tarih}
+        </p>
 
         <div class="prose-blog text-text leading-relaxed">
           ${icerikHTML}
         </div>
       `;
+
+      // İÇİNDEKİLER (## başlıklarından otomatik)
+      const basliklar = [...container.querySelectorAll('.prose-blog h2')];
+      if (basliklar.length > 1) {
+        const icindekilerKutu = document.getElementById('icindekiler');
+        let liste = '<h3 class="text-heading font-bold mb-3">İçindekiler</h3><ul class="space-y-1">';
+        basliklar.forEach((h, i) => {
+          const ankor = 'baslik-' + i;
+          h.id = ankor;
+          liste += `<li><a href="#${ankor}" class="text-accent text-sm hover:underline">${h.textContent}</a></li>`;
+        });
+        liste += '</ul>';
+        icindekilerKutu.innerHTML = liste;
+        icindekilerKutu.classList.remove('hidden');
+      }
+
+      // TEPKİ SİSTEMİ (Sadece bir emoji seçilebilir)
+      const tepkiler = ['😭', '😲', '😠', '😄', '👍', '🏔️'];
+      const secimKey = 'tepkiSecim_' + b.id;
+      const secilenEmoji = localStorage.getItem(secimKey);
+      const tepkiKutusu = document.getElementById('tepkiKutusu');
+
+      function tepkileriCiz() {
+        tepkiKutusu.innerHTML = tepkiler.map(emoji => {
+          const sayiKey = 'tepkiSayi_' + b.id + '_' + emoji;
+          const sayi = parseInt(localStorage.getItem(sayiKey)) || 0;
+          const secilmisMi = localStorage.getItem(secimKey) === emoji;
+          return `<button class="tepkiBtn ${secilmisMi ? 'bg-accent text-white' : 'bg-card text-text'} hover:opacity-80 transition rounded-lg px-3 py-2 text-sm" data-emoji="${emoji}">${emoji} <span>${sayi}</span></button>`;
+        }).join('');
+
+        tepkiKutusu.querySelectorAll('.tepkiBtn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const yeniEmoji = btn.dataset.emoji;
+            const oncekiSecim = localStorage.getItem(secimKey);
+
+            if (oncekiSecim === yeniEmoji) return; // zaten bu seçiliyse tekrar tıklamayı yoksay
+
+            // Önceki seçimin sayacını azalt
+            if (oncekiSecim) {
+              const oncekiSayiKey = 'tepkiSayi_' + b.id + '_' + oncekiSecim;
+              let oncekiSayi = parseInt(localStorage.getItem(oncekiSayiKey)) || 0;
+              oncekiSayi = Math.max(0, oncekiSayi - 1);
+              localStorage.setItem(oncekiSayiKey, oncekiSayi);
+            }
+
+            // Yeni seçimin sayacını artır
+            const yeniSayiKey = 'tepkiSayi_' + b.id + '_' + yeniEmoji;
+            let yeniSayi = parseInt(localStorage.getItem(yeniSayiKey)) || 0;
+            yeniSayi++;
+            localStorage.setItem(yeniSayiKey, yeniSayi);
+
+            localStorage.setItem(secimKey, yeniEmoji);
+            tepkileriCiz();
+          });
+        });
+      }
+
+      tepkileriCiz();
+
+      // ÖNCEKİ / SONRAKİ YAZI
+      fetch('data/blog.json').then(r => r.json()).then(yazilar => {
+        const siraliYazilar = [...yazilar].sort((a, b) => new Date(a.tarih) - new Date(b.tarih));
+        const suankiIndex = siraliYazilar.findIndex(y => y.id === b.id);
+        const oncekiYazi = siraliYazilar[suankiIndex - 1];
+        const sonrakiYazi = siraliYazilar[suankiIndex + 1];
+
+        const kutu = document.getElementById('oncekiSonrakiYazi');
+        let html = '';
+
+        if (oncekiYazi) {
+          html += `
+            <a href="blog-detay.html?id=${oncekiYazi.id}" class="bg-card border border-highlight rounded-xl p-4 hover:bg-card/70 transition">
+              <span class="text-accent text-xs font-semibold">← Önceki Yazı</span>
+              <p class="text-text text-sm mt-1">${oncekiYazi.baslik}</p>
+            </a>
+          `;
+        } else {
+          html += '<div></div>';
+        }
+
+        if (sonrakiYazi) {
+          html += `
+            <a href="blog-detay.html?id=${sonrakiYazi.id}" class="bg-card border border-highlight rounded-xl p-4 hover:bg-card/70 transition text-right">
+              <span class="text-accent text-xs font-semibold">Sonraki Yazı →</span>
+              <p class="text-text text-sm mt-1">${sonrakiYazi.baslik}</p>
+            </a>
+          `;
+        } else {
+          html += '<div></div>';
+        }
+
+        kutu.innerHTML = html;
+      });
+
+      
     })
     .catch(err => console.error('Yazı yüklenemedi:', err));
+
+
+    // OKUMA İLERLEME ÇUBUĞU
+  window.addEventListener('scroll', () => {
+    const yukseklik = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const ilerleme = (window.scrollY / yukseklik) * 100;
+    document.getElementById('okumaCubugu').style.width = ilerleme + '%';
+  });
 
 </script>
 

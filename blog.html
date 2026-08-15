@@ -108,6 +108,7 @@
 
   <section class="max-w-6xl mx-auto px-6 py-12 text-center">
     <h1 class="text-heading text-4xl font-bold mb-3">Blog</h1>
+    <input id="blogArama" type="text" placeholder="Başlığa göre ara..." class="w-full max-w-md mx-auto block bg-card text-text rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-accent">
   </section>
 
   <section class="max-w-6xl mx-auto px-6 pb-16">
@@ -162,28 +163,24 @@
 
     // Blog yazılarını standart forma çevir
     const blogItems = blogYazilari.map(b => ({
-      tip: 'blog',
-      id: b.id,
-      tarih: b.tarih,
-      kategori: b.kategori,
-      baslik: b.baslik,
-      ozet: b.ozet,
-      kapak: b.kapak
+      tip: 'blog', id: b.id, tarih: b.tarih, kategori: b.kategori,
+      baslik: b.baslik, ozet: b.ozet, kapak: b.kapak,
+      oneCikan: b.oneCikan || false
     }));
 
     // Faaliyetleri standart forma çevir
     const faaliyetItems = faaliyetler.map(f => ({
-      tip: 'faaliyet',
-      id: f.id,
-      tarih: f.tarih,
-      kategori: 'Faaliyet',
-      baslik: f.rota,
-      ozet: f.ani.substring(0, 100) + '...',
-      kapak: f.kapak
+      tip: 'faaliyet', id: f.id, tarih: f.tarih, kategori: 'Faaliyet',
+      baslik: f.rota, ozet: (f.detaylar || f.ani || '').substring(0, 80) + '...', kapak: f.kapak,
+      oneCikan: f.oneCikan || false
     }));
 
     tumIcerik = [...blogItems, ...faaliyetItems];
-    tumIcerik.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+    tumIcerik.sort((a, b) => {
+      if (a.oneCikan && !b.oneCikan) return -1;
+      if (!a.oneCikan && b.oneCikan) return 1;
+      return new Date(b.tarih) - new Date(a.tarih);
+    });
 
     renderBlogGrid(tumIcerik);
   }).catch(err => console.error('İçerik yüklenemedi:', err));
@@ -200,22 +197,40 @@
       const kart = document.createElement('a');
       kart.href = link;
       kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
+      const kategoriIkon = item.kategori === 'Faaliyet'
+        ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 5h2v4H2zm20 0h-2v4h2zM4 9h2v2H4zm16 0h-2v2h2zM2 13h4v2H2zm20 0h-4v2h4zM4 17h2v2H4zm16 0h-2v2h2zM2 19h2v2H2zm20 0h-2v2h2zM6 11h12v2H6z"/><path d="M6 7h2v12H6zm10 0h2v12h-2zM8 19h8v2H8zM8 5h8v2H8z"/><path d="M11 15h2v6h-2zM8 1h2v6H8zm6 0h2v6h-2z"/></svg>`
+        : `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 22H10V20H14V22ZM10 20H8V18H10V20ZM16 20H14V18H16V20ZM8 18H6V16H8V18ZM18 18H16V16H18V18ZM13 17H11V15H13V17ZM6 16H4V14H6V16ZM20 16H18V14H20V16ZM4 14H2V6H4V14ZM22 14H20V6H22V14ZM10 10H11V13H8V12H6V8H10V10ZM18 12H16V13H13V10H14V8H18V12ZM6 6H4V4H6V6ZM20 6H18V4H20V6ZM18 4H6V2H18V4Z"/></svg>`;
+
       kart.innerHTML = `
         <div class="h-40 bg-bg/50">
           <img src="${item.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
         </div>
         <div class="p-5">
-          <span class="text-heading text-xs font-semibold">${item.kategori}</span>
+          <span class="text-accent text-xs font-semibold flex items-center gap-1">
+            ${kategoriIkon}
+            ${item.kategori}
+          </span>
           <h3 class="text-heading text-lg font-bold mt-1 mb-2">${item.baslik}</h3>
-          <p class="text-text text-sm">${item.ozet}</p>
-          <p class="text-text/60 text-xs mt-3">${item.tarih}</p>
+          <p class="text-text text-sm mb-2">${item.ozet}</p>
+          <p class="text-highlight text-xs flex items-center gap-1 mb-3">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+            ${item.tarih}
+          </p>
+          <div class="text-right">
+            <span class="text-accent text-sm font-semibold">Devamını Oku →</span>
+          </div>
         </div>
       `;
       grid.appendChild(kart);
     });
   }
 
-   
+   // BLOG ARAMA
+  document.getElementById('blogArama').addEventListener('input', (e) => {
+    const kelime = e.target.value.toLowerCase();
+    const filtreli = tumIcerik.filter(i => i.baslik.toLowerCase().includes(kelime));
+    renderBlogGrid(filtreli);
+  });
 
 </script>
 
