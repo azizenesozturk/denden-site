@@ -514,10 +514,22 @@ if (!oyunBasladi) {
 
   
 
-  oyunDongu();
-  document.getElementById('baslaIkon').addEventListener('click', () => {
-    oyunuBaslat();
-  });
+  let yuklenenResimSayisi = 0;
+const toplamResimSayisi = 2; // sabahResmi + geceResmi
+
+function resimYuklendi() {
+  yuklenenResimSayisi++;
+  if (yuklenenResimSayisi >= toplamResimSayisi) {
+    oyunDongu();
+  }
+}
+
+if (sabahResmi.complete) resimYuklendi(); else sabahResmi.onload = resimYuklendi;
+if (geceResmi.complete) resimYuklendi(); else geceResmi.onload = resimYuklendi;
+
+document.getElementById('baslaIkon').addEventListener('click', () => {
+  oyunuBaslat();
+});
   // KLAVYE VE DOKUNMA KONTROLÜ
   document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
