@@ -218,15 +218,16 @@ geceResmi.src = 'images/gece.png';
 }
 
   function agaclariGuncelle(delta) {
-    sonrakiAgacSayaci -= delta;
-    if (sonrakiAgacSayaci <= 0) {
-      agacOlustur();
-      sonrakiAgacSayaci = 80 + Math.random() * 80;
-    }
-
-    agaclar.forEach(a => a.x -= hiz * delta);
-    agaclar = agaclar.filter(a => a.x + a.w > 0);
+  sonrakiAgacSayaci -= delta;
+  if (sonrakiAgacSayaci <= 0) {
+    agacOlustur();
+    const zorlukFaktoru = Math.max(0.5, 1 - skor / 3000); // skor arttıkça aralık daralır
+    sonrakiAgacSayaci = (60 + Math.random() * 70) * zorlukFaktoru;
   }
+
+  agaclar.forEach(a => a.x -= hiz * delta);
+  agaclar = agaclar.filter(a => a.x + a.w > 0);
+}
 
   function cizAgaclar() {
     agaclar.forEach(a => {
@@ -305,12 +306,13 @@ geceResmi.src = 'images/gece.png';
   }
 
   function cizSkor() {
-    ctx.fillStyle = '#C1AB85';
-    ctx.font = 'bold 16px sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillText('Skor: ' + Math.floor(skor), canvas.width - 15, 25);
-    ctx.fillText('En Yüksek: ' + enYuksekSkor, canvas.width - 15, 45);
-  }
+  const donguIndex = Math.floor(skor / 500) % 2;
+  ctx.fillStyle = donguIndex === 0 ? '#2C3E3E' : '#C1AB85';
+  ctx.font = 'bold 16px sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText('Skor: ' + Math.floor(skor), canvas.width - 15, 25);
+  ctx.fillText('En Yüksek: ' + enYuksekSkor, canvas.width - 15, 45);
+}
 
   function carpismaKontrol() {
     if (ucmaAktif) return false; // uçarken hiçbir şeye çarpmaz
