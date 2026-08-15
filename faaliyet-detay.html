@@ -232,72 +232,72 @@
         ` : ''}
 
         <h3 class="text-heading text-lg font-bold mb-3">Gezi Bilgileri</h3>
-        <div class="grid grid-cols-2 gap-3 md:gap-4 mb-8">
+        <div class="grid grid-cols-2 gap-2 sm:gap-4 mb-8">
 
-          <div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-            <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
-            <div>
-              <p class="text-heading text-sm font-semibold">Tarih</p>
-              <p class="text-text text-sm">${f.tarih}</p>
+          <!-- TARİH -->
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Tarih</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.tarih}</p>
             </div>
           </div>
 
-          <div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-            <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 23h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 17H5v-3h2v3Zm12 0h-2v-3h2v3ZM5 14H3V6h2v8Zm9 0h-4v-2h4v2Zm7 0h-2V6h2v8Zm-11-2H8V8h2v4Zm6 0h-2V8h2v4Zm-2-4h-4V6h4v2ZM7 6H5V4h2v2Zm12 0h-2V4h2v2Zm-2-2H7V2h10v2Z"/></svg>
-            <div>
-              <p class="text-heading text-sm font-semibold">Bölge</p>
-              <p class="text-text text-sm">${f.bolge}</p>
+          <!-- BÖLGE -->
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M13 23h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 17H5v-3h2v3Zm12 0h-2v-3h2v3ZM5 14H3V6h2v8Zm9 0h-4v-2h4v2Zm7 0h-2V6h2v8Zm-11-2H8V8h2v4Zm6 0h-2V8h2v4Zm-2-4h-4V6h4v2ZM7 6H5V4h2v2Zm12 0h-2V4h2v2Zm-2-2H7V2h10v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Bölge</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.bolge}</p>
             </div>
           </div>
 
-          <div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-            <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22 20H2v-2h20v2ZM2 18H0v-6h2v6Zm22 0h-2v-6h2v6Zm-6-6v2h-2v-2h2ZM4 12H2v-2h2v2Zm6 0H8v-2h2v2Zm10-2h2v2h-4V8h2v2ZM8 10H4V8h4v2Zm2-2H8V6h2v2Zm8 0h-2V6h2v2Zm-2-2h-6V4h6v2Z"/></svg>
-            <div>
-              <p class="text-heading text-sm font-semibold">Hava</p>
-              <p class="text-text text-sm">${f.havaDurumu}</p>
+          <!-- HAVA -->
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M22 20H2v-2h20v2ZM2 18H0v-6h2v6Zm22 0h-2v-6h2v6Zm-6-6v2h-2v-2h2ZM4 12H2v-2h2v2Zm6 0H8v-2h2v2Zm10-2h2v2h-4V8h2v2ZM8 10H4V8h4v2Zm2-2H8V6h2v2Zm8 0h-2V6h2v2Zm-2-2h-6V4h6v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Hava</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.havaDurumu}</p>
             </div>
           </div>
 
-          <div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-            <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 22H3v-2h18v2ZM3 20H1v-6h2v6Zm20 0h-2v-6h2v6ZM9 7h6V4h2v3h2v2h-2v2h-2V9H9v2H7V9H5v5H3V9h2V7h2V4h2v3Zm12 7h-2V9h2v5ZM15 4H9V2h6v2Z"/></svg>
-            <div>
-              <p class="text-heading text-sm font-semibold">Ekipman</p>
-              <p class="text-text text-sm">${f.ekipman.join(', ')}</p>
+          <!-- EKİPMAN -->
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 22H3v-2h18v2ZM3 20H1v-6h2v6Zm20 0h-2v-6h2v6ZM9 7h6V4h2v3h2v2h-2v2h-2V9H9v2H7V9H5v5H3V9h2V7h2V4h2v3Zm12 7h-2V9h2v5ZM15 4H9V2h6v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Ekipman</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.ekipman.join(', ')}</p>
             </div>
           </div>
 
-                    
-<div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-  <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
-  <div>
-    <p class="text-heading text-sm font-semibold">Tarih</p>
-    <p class="text-text text-sm">${f.tarih}</p>
-  </div>
-</div>
-
-
+          <!-- EKİP -->
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M2 22H0v-4h2v4Zm14 0h-2v-4h2v4Zm8 0h-2v-4h2v4ZM4 18H2v-2h2v2Zm10 0h-2v-2h2v2Zm8 0h-2v-2h2v2Zm-10-2H4v-2h8v2Zm8 0h-4v-2h4v2Zm-9-4H5v-2h6v2Zm8 0h-4v-2h4v2ZM5 10H3V4h2v6Zm8 0h-2V4h2v6Zm8 0h-2V4h2v6ZM11 4H5V2h6v2Zm8 0h-4V2h4v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Ekip</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.ekip.join(', ')}</p>
+            </div>
+          </div>
 
           <!-- SAAT -->
-          <div class="bg-card rounded-xl p-4 flex items-start gap-3 min-h-[76px]">
-            <svg class="text-highlight shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/>
-            </svg>
-            <div>
-              <p class="text-heading text-sm font-semibold">Saat</p>
-              <p class="text-text text-sm">${f.saat || '-'}</p>
+          <div class="bg-card rounded-xl p-2.5 sm:p-4 flex items-start gap-2 sm:gap-3 min-h-[68px] sm:min-h-[76px]">
+            <svg class="text-highlight shrink-0 mt-1 w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
+            <div class="min-w-0">
+              <p class="text-heading text-xs sm:text-sm font-semibold truncate">Saat</p>
+              <p class="text-text text-xs sm:text-sm break-words">${f.saat || '-'}</p>
             </div>
           </div>
 
           <!-- YÜRÜYÜŞ -->
-<div class="col-span-2 flex justify-center">
-  <div class="bg-card rounded-xl p-4 flex flex-col items-center justify-center text-center gap-1 min-h-[76px] w-1/2">
-    <svg class="text-highlight" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 22H4v-2h2v2Zm14 0h-3v-2h3v2Zm-3-2h-2v-3h2v3Zm5 0h-2v-3h2v3ZM6 18H4v-4h2v4Zm14-1h-3v-2h3v2Zm-5-3H6v-2h9v2Zm2-10h2v2h2v2h-4v4h-2V8h-4V6h2V4h2V2h2v2ZM4 8H2V6h2v2Zm4 0H6V6h2v2ZM6 6H4V4h2v2ZM4 4H2V2h2v2Zm4 0H6V2h2v2Z"/></svg>
-    <div>
-      <p class="text-heading text-sm font-semibold">Yürüyüş</p>
-      <p class="text-text text-sm">5 km</p>
-    </div>
-  </div>
-</div>
+          <div class="col-span-2 flex justify-center">
+            <div class="bg-card rounded-xl p-2.5 sm:p-4 flex flex-col items-center justify-center text-center gap-1 min-h-[68px] sm:min-h-[76px] w-full sm:w-1/2">
+              <svg class="text-highlight w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 22H4v-2h2v2Zm14 0h-3v-2h3v2Zm-3-2h-2v-3h2v3Zm5 0h-2v-3h2v3ZM6 18H4v-4h2v4Zm14-1h-3v-2h3v2Zm-5-3H6v-2h9v2Zm2-10h2v2h2v2h-4v4h-2V8h-4V6h2V4h2V2h2v2ZM4 8H2V6h2v2Zm4 0H6V6h2v2ZM6 6H4V4h2v2ZM4 4H2V2h2v2Zm4 0H6V2h2v2Z"/></svg>
+              <div>
+                <p class="text-heading text-xs sm:text-sm font-semibold">Yürüyüş</p>
+                <p class="text-text text-xs sm:text-sm">5 km</p>
+              </div>
+            </div>
+          </div>
 
         </div>
 
