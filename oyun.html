@@ -181,6 +181,13 @@ kalkanResmi.src = 'images/kalkan.png';
 const kanatResmi = new Image();
 kanatResmi.src = 'images/kanat.png';
 
+const sesZipla = new Audio('sounds/zipla.wav');
+
+function sesCal(ses) {
+  ses.currentTime = 0;
+  ses.play().catch(() => {});
+}
+
 const sabahResmi = new Image();
 sabahResmi.src = 'images/sabah.png';
 
@@ -417,11 +424,12 @@ let oyunBasladi = false;
   }
 
   function ziplat() {
-    if (!karakter.ziplamada) {
-      karakter.ySpeed = ziplamaGucu;
-      karakter.ziplamada = true;
-    }
+  if (!karakter.ziplamada) {
+    karakter.ySpeed = ziplamaGucu;
+    karakter.ziplamada = true;
+    sesCal(sesZipla);
   }
+}
 
   let oyunBitti = false;
 
