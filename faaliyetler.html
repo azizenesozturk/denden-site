@@ -125,6 +125,21 @@
     </div>
   </section>
 
+  <!-- FİLTRELER -->
+<section class="max-w-6xl mx-auto px-6 pt-6 pb-2">
+  <div class="grid grid-cols-2 gap-3 max-w-md">
+    <select id="filtreBolge" class="w-full bg-card text-heading text-sm font-semibold rounded-lg px-4 py-2.5 border-2 border-highlight/40 focus:outline-none focus:border-highlight cursor-pointer">
+      <option value="">Tüm Bölgeler</option>
+    </select>
+    <select id="filtreZorluk" class="w-full bg-card text-heading text-sm font-semibold rounded-lg px-4 py-2.5 border-2 border-highlight/40 focus:outline-none focus:border-highlight cursor-pointer">
+      <option value="">Tüm Zorluklar</option>
+      <option value="Kolay">Kolay</option>
+      <option value="Orta">Orta</option>
+      <option value="Zor">Zor</option>
+    </select>
+  </div>
+</section>
+
   <!-- FAALİYET KARTLARI (JS ile doldurulacak) -->
   <section class="max-w-6xl mx-auto px-6 pb-16">
     <div id="faaliyetGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -169,58 +184,96 @@
     mobilMenu.classList.remove('flex');
   });
 
-// FAALİYETLERİ JSON'DAN ÇEK VE GÖSTER
+// FAALİYETLERİ JSON'DAN ÇEK, FİLTRELE VE GÖSTER
+  let tumFaaliyetler = [];
+
+  function kartCiz(f) {
+    const zorlukRenk = f.zorluk === 'Kolay' ? 'bg-kolay text-bg' 
+                      : f.zorluk === 'Zor' ? 'bg-zor text-white' 
+                      : 'bg-orta text-bg';
+
+    const kart = document.createElement('a');
+    kart.href = `faaliyet-detay.html?id=${f.id}`;
+    kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
+    kart.innerHTML = `
+      <div class="h-48 bg-bg/50 flex items-center justify-center">
+        <img src="${f.kapak}" alt="${f.rota}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+      </div>
+      <div class="p-5">
+        <div class="flex items-start justify-between gap-3 mt-3 mb-1">
+          <h3 class="text-heading text-lg font-bold">${f.rota}</h3>
+          <span class="${zorlukRenk} text-xs font-semibold px-3 py-1 rounded-full shrink-0">Zorluk: ${f.zorluk}</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 text-highlight text-sm mb-2">
+          <span class="flex items-center gap-1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 23h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 17H5v-3h2v3Zm12 0h-2v-3h2v3ZM5 14H3V6h2v8Zm9 0h-4v-2h4v2Zm7 0h-2V6h2v8Zm-11-2H8V8h2v4Zm6 0h-2V8h2v4Zm-2-4h-4V6h4v2ZM7 6H5V4h2v2Zm12 0h-2V4h2v2Zm-2-2H7V2h10v2Z"/></svg>
+            ${f.bolge}
+          </span>
+          <span class="flex items-center gap-1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
+            ${f.tarih}
+          </span>
+          ${f.saat ? `
+          <span class="flex items-center gap-1">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
+            ${f.saat}
+          </span>
+          ` : ''}
+        </div>
+        ${f.detaylar ? `<p class="text-text text-sm mb-3">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
+        <span class="text-accent text-sm font-semibold">Devamını Oku →</span>
+      </div>
+    `;
+    return kart;
+  }
+
+  function grideCiz(liste) {
+    const grid = document.getElementById('faaliyetGrid');
+    grid.innerHTML = '';
+
+    if (liste.length === 0) {
+      grid.innerHTML = '<p class="text-text col-span-full text-center py-10">Bu kriterlere uygun faaliyet bulunamadı.</p>';
+      return;
+    }
+
+    liste.forEach(f => grid.appendChild(kartCiz(f)));
+  }
+
+  function filtreUygula() {
+    const bolge = document.getElementById('filtreBolge').value;
+    const zorluk = document.getElementById('filtreZorluk').value;
+
+    const filtreli = tumFaaliyetler.filter(f => {
+      const bolgeUyuyor = !bolge || f.bolge === bolge;
+      const zorlukUyuyor = !zorluk || f.zorluk === zorluk;
+      return bolgeUyuyor && zorlukUyuyor;
+    });
+
+    grideCiz(filtreli);
+  }
+
   fetch('data/faaliyetler.json')
     .then(response => response.json())
     .then(faaliyetler => {
-      // Tarihe göre sırala (en yeni üstte)
       faaliyetler.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
+      tumFaaliyetler = faaliyetler;
 
-      const grid = document.getElementById('faaliyetGrid');
-      
-      
-
-      faaliyetler.forEach(f => {
-        const zorlukRenk = f.zorluk === 'Kolay' ? 'bg-kolay text-bg' 
-                          : f.zorluk === 'Zor' ? 'bg-zor text-white' 
-                          : 'bg-orta text-bg';
-
-        const kart = document.createElement('a');
-        kart.href = `faaliyet-detay.html?id=${f.id}`;
-        kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition';
-        kart.innerHTML = `
-          <div class="h-48 bg-bg/50 flex items-center justify-center">
-            <img src="${f.kapak}" alt="${f.rota}" class="w-full h-full object-cover" onerror="this.style.display='none'">
-          </div>
-          <div class="p-5">
-            <div class="flex items-start justify-between gap-3 mt-3 mb-1">
-  <h3 class="text-heading text-lg font-bold">${f.rota}</h3>
-  <span class="${zorlukRenk} text-xs font-semibold px-3 py-1 rounded-full shrink-0">Zorluk: ${f.zorluk}</span>
-</div>
-            <div class="flex flex-wrap items-center gap-3 text-highlight text-sm mb-2">
-  <span class="flex items-center gap-1">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 23h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 17H5v-3h2v3Zm12 0h-2v-3h2v3ZM5 14H3V6h2v8Zm9 0h-4v-2h4v2Zm7 0h-2V6h2v8Zm-11-2H8V8h2v4Zm6 0h-2V8h2v4Zm-2-4h-4V6h4v2ZM7 6H5V4h2v2Zm12 0h-2V4h2v2Zm-2-2H7V2h10v2Z"/></svg>
-    ${f.bolge}
-  </span>
-  <span class="flex items-center gap-1">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
-    ${f.tarih}
-  </span>
-  ${f.saat ? `
-  <span class="flex items-center gap-1">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM6 20H4v-2h2v2Zm14 0h-2v-2h2v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-5-1h-2v-2h2v2Zm-2-2h-2v-2h2v2Zm-2-2h-2V6h2v7ZM6 6H4V4h2v2Zm14 0h-2V4h2v2Zm-2-2H6V2h12v2Z"/></svg>
-    ${f.saat}
-  </span>
-  ` : ''}
-</div>
-            ${f.detaylar ? `<p class="text-text text-sm mb-3">${f.detaylar.substring(0, 90)}${f.detaylar.length > 90 ? '...' : ''}</p>` : ''}
-<span class="text-accent text-sm font-semibold">Devamını Oku →</span>
-</div>
-        `;
-        grid.appendChild(kart);
+      // Bölge dropdown'unu benzersiz bölgelerle doldur
+      const bolgeSelect = document.getElementById('filtreBolge');
+      const benzersizBolgeler = [...new Set(faaliyetler.map(f => f.bolge))].sort();
+      benzersizBolgeler.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b;
+        opt.textContent = b;
+        bolgeSelect.appendChild(opt);
       });
+
+      grideCiz(tumFaaliyetler);
+
+      document.getElementById('filtreBolge').addEventListener('change', filtreUygula);
+      document.getElementById('filtreZorluk').addEventListener('change', filtreUygula);
     })
-    .catch(err => console.error('Faaliyetler yüklenemedi:', err));  
+    .catch(err => console.error('Faaliyetler yüklenemedi:', err)); 
 
 </script>
 
