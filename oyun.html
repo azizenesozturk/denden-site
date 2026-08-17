@@ -111,12 +111,12 @@
     
     <div class="relative inline-block bg-card rounded-none md:rounded-xl overflow-hidden w-full" style="max-width: 1100px;">
       <canvas id="oyunCanvas" width="800" height="500" class="block w-full h-auto"></canvas>
-      <div id="baslaIkon" class="absolute left-1/2 -translate-x-1/2 top-[45%] text-accent cursor-pointer hover:opacity-80 transition">
-        <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M16 13v-2h-2v2h2Zm-2-2V9h-2v2h2Zm0 4v-2h-2v2h2Zm-2-6V7h-2v2h2Zm0 8v-2h-2v2h2ZM10 7V5H8v2h2Zm0 12v-2H8v2h2Z"/></svg>
-      </div>
+      <div id="baslaIkon" class="absolute left-1/2 -translate-x-1/2 top-[42%] text-accent cursor-pointer hover:opacity-80 transition">
+  <svg class="w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M16 13v-2h-2v2h2Zm-2-2V9h-2v2h2Zm0 4v-2h-2v2h2Zm-2-6V7h-2v2h2Zm0 8v-2h-2v2h2ZM10 7V5H8v2h2Zm0 12v-2H8v2h2Z"/></svg>
+</div>
     </div>
 
-    <p class="text-text text-sm mt-4">Zıplamak için BOŞLUK tuşuna veya ekrana dokun.</p>
+    
 
     <button id="ziplaBtn" class="md:hidden w-full mt-4 py-6 bg-accent text-white text-lg font-bold rounded-xl active:opacity-70 select-none">
       ZIPLA
@@ -299,19 +299,22 @@ geceResmi.src = 'images/gece.png';
   }
 
   function cizPowerUpDurumu() {
-    ctx.textAlign = 'left';
-    ctx.font = 'bold 13px sans-serif';
-    let y = 25;
-    if (kalkanAktif) {
-      ctx.fillStyle = '#7BA7AF';
-      ctx.fillText('🛡 Kalkan Aktif', 15, y);
-      y += 20;
-    }
-    if (ucmaAktif) {
-      ctx.fillStyle = '#B2E50F';
-      ctx.fillText('🪶 Uçuyorsun', 15, y);
-    }
+  const donguIndex = Math.floor(skor / 500) % 2;
+  const renk = donguIndex === 0 ? '#2C3E3E' : '#C1AB85';
+
+  ctx.textAlign = 'left';
+  ctx.font = 'bold 13px sans-serif';
+  let y = 25;
+  if (kalkanAktif) {
+    ctx.fillStyle = renk;
+    ctx.fillText('🛡 Kalkan Aktif', 15, y);
+    y += 20;
   }
+  if (ucmaAktif) {
+    ctx.fillStyle = renk;
+    ctx.fillText('🪶 Uçuyorsun', 15, y);
+  }
+}
 
   function cizSkor() {
   const donguIndex = Math.floor(skor / 500) % 2;
@@ -435,15 +438,18 @@ let oyunBasladi = false;
   let oyunBitti = false;
 
   function cizBaslangicEkrani() {
-    ctx.fillStyle = '#7BA7AF';
-    ctx.font = 'bold 22px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Zirveye Koş', canvas.width / 2, 110);
+  ctx.save();
+  ctx.textAlign = 'center';
 
-    ctx.font = '14px sans-serif';
-    ctx.fillStyle = '#C1AB85';
-    ctx.fillText('Başlamak için tıkla veya BOŞLUK\'a bas', canvas.width / 2, 140);
-  }
+  const kucukEkran = canvas.clientWidth < 500;
+  ctx.font = kucukEkran ? 'bold 13px sans-serif' : 'bold 16px sans-serif';
+  ctx.fillStyle = '#1A2626';
+  ctx.shadowColor = 'rgba(255,255,255,0.4)';
+  ctx.shadowBlur = 4;
+  ctx.fillText('Başlamak için tıkla veya BOŞLUK\'a bas', canvas.width / 2, 300);
+
+  ctx.restore();
+}
 
   function oyunuBaslat() {
     if (oyunBasladi) return;
@@ -506,16 +512,19 @@ if (!oyunBasladi) {
         localStorage.setItem('enYuksekSkor', enYuksekSkor);
       }
 
-      ctx.fillStyle = 'rgba(26, 38, 38, 0.8)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#F3701E';
-      ctx.font = 'bold 24px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Oyun Bitti', canvas.width / 2, canvas.height / 2 - 15);
-      ctx.font = '16px sans-serif';
-      ctx.fillStyle = '#C1AB85';
-      ctx.fillText('Skor: ' + Math.floor(skor) + '  —  Yeniden başlamak için tıkla', canvas.width / 2, canvas.height / 2 + 15);
-      return;
+      const bittiDonguIndex = Math.floor(skor / 500) % 2;
+const bittiRenk = bittiDonguIndex === 0 ? '#2C3E3E' : '#C1AB85';
+
+ctx.fillStyle = 'rgba(26, 38, 38, 0.8)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = '#F3701E';
+ctx.font = 'bold 24px sans-serif';
+ctx.textAlign = 'center';
+ctx.fillText('Oyun Bitti', canvas.width / 2, canvas.height / 2 - 15);
+ctx.font = '16px sans-serif';
+ctx.fillStyle = bittiRenk;
+ctx.fillText('Skor: ' + Math.floor(skor) + '  —  Yeniden başlamak için tıkla', canvas.width / 2, canvas.height / 2 + 15);
+return;
     }
 
     zeminOffset += hiz * delta;
