@@ -4,27 +4,31 @@
     "kisaAciklama": "Konum ve tarihe göre yapay zeka destekli hava durumu ve seyahat tavsiyesi.",
     "aciklama": "Gideceğin yeri, tarihi ve aktiviteni (kamp, yüzme, yürüyüş, tırmanış vb.) seçtiğinde gerçek hava durumu verisini çekip yapay zekaya yorumlatan, 'git / dikkatli git / gitme' şeklinde net tavsiyeler üreten bir web uygulaması.",
     "gorsel": "images/calismalarim/rota-app.png",
-    "link": "https://rota-app-alpha.vercel.app/"
+    "link": "https://rota-app-alpha.vercel.app/",
+    "etiketler": ["kesif"]
   },
   {
     "ad": "Renkli Testler",
     "kisaAciklama": "Kişilik testleri ve arkadaşlarla oynanan tahmin oyunları platformu.",
     "aciklama": "Kullanıcıların kişilik testleri yapıp kendileri hakkında analiz sonuçları görebildiği, ayrıca arkadaşlarıyla birlikte tahmin oyunları oynayarak eğlenceli vakit geçirebildiği bir web uygulaması.",
     "gorsel": "images/calismalarim/renkli-testler.png",
-    "link": "https://renkli-testler.vercel.app/"
+    "link": "https://renkli-testler.vercel.app/",
+    "etiketler": ["ivirzivir"]
   },
   {
     "ad": "Macera Zamanı",
     "kisaAciklama": "Harita üzerinde rota planlama ve takip uygulaması.",
     "aciklama": "Kullanıcının harita üzerinde yer ve rota ekleyip bunlara daha sonra ulaşabildiği bir uygulama. Konum verisi sayesinde kullanıcı, planladığı rotada nerede olduğunu anlık olarak takip edebiliyor.",
     "gorsel": "images/calismalarim/macera-zamani.png",
-    "link": "https://ozturkazizenes.pythonanywhere.com/"
+    "link": "https://ozturkazizenes.pythonanywhere.com/",
+    "etiketler": ["kesif"]
   },
   {
     "ad": "AI Stok Yönetim Sistemi",
     "kisaAciklama": "Yapay zeka destekli talep tahmini ve otomatik sipariş önerisi sunan envanter yönetim sistemi.",
     "aciklama": "Ürün, kategori ve tedarikçi yönetiminin yanında geçmiş satış verisine dayalı AI talep tahmini, tedarikçi teslimat süresine göre otomatik sipariş önerisi ve z-skoru yöntemiyle anomali tespiti içeren modern bir sistem.",
     "gorsel": "images/calismalarim/ai-stok.png",
-    "link": "https://ai-stok-yonetim-sistemi.vercel.app/products"
+    "link": "https://ai-stok-yonetim-sistemi.vercel.app/products",
+    "etiketler": ["ivirzivir"]
   }
 ]

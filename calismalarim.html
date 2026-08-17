@@ -108,13 +108,50 @@
 
 <main>
 
-  <section class="max-w-6xl mx-auto px-6 py-12 text-center">
-    <h1 class="text-heading text-4xl font-bold mb-3">Çalışmalarım</h1>
-    <p class="text-text">Geliştirdiğim yazılım projeleri.</p>
+            <!-- HERO: BAŞLIK + ETİKET FİLTRELERİ -->
+  <section class="max-w-6xl mx-auto px-6 pt-8 pb-6 md:pb-8">
+    <div class="relative rounded-xl overflow-hidden h-[280px] md:h-[380px]">
+      <img src="images/calismalarim-hero.png" class="w-full h-full object-cover" alt="Çalışmalarım">
+
+      <!-- Üst-alt karartma, okunabilirlik için -->
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/10 to-bg/80"></div>
+
+      <!-- Sol üst: başlık -->
+      <div class="absolute top-0 left-0 p-5 md:p-8">
+        <h1 class="text-heading text-2xl md:text-4xl font-bold mb-1 md:mb-2" style="text-shadow: 0 2px 8px rgba(0,0,0,0.6);">Çalışmalarım</h1>
+                <p class="text-xs md:text-base" style="color: #D2B17F; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">Geliştirdiğim yazılım projeleri.</p>
+      </div>
+
+      <!-- Alt: etiket butonları -->
+      <div class="absolute bottom-0 left-0 right-0 p-2.5 md:p-6 grid grid-cols-4 gap-1 md:gap-3">
+        <button data-etiket="" class="etiketBtn bg-bg/60 text-text text-[9px] sm:text-xs md:text-sm font-semibold px-0.5 py-1.5 md:py-2 md:px-4 rounded-full transition hover:bg-bg/80 flex items-center justify-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0"><path d="M7 2h10v2H7zM5 4h2v10H5zm12-2h2v12h-2z"/><path d="M13 2h2v6h-2zM9 2h2v4H9zm-4 8h14v2H5zm2 4h10v2H7zm2 2h2v4H9zm4 0h2v4h-2zm-4 4h6v2H9z"/></svg>
+          Tümü
+        </button>
+        <button data-etiket="oyun" class="etiketBtn bg-bg/60 text-text text-[9px] sm:text-xs md:text-sm font-semibold px-0.5 py-1.5 md:py-2 md:px-4 rounded-full transition hover:bg-bg/80 flex items-center justify-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-12-7h2v2h-2v2H8v-2H6v-2h2V9h2v2Zm8 4h-2v-2h2v2Zm-2-4h-2V9h2v2Zm4-5H4V4h16v2Z"/></svg>
+          Oyun
+        </button>
+        <button data-etiket="ivirzivir" class="etiketBtn bg-bg/60 text-text text-[9px] sm:text-xs md:text-sm font-semibold px-0.5 py-1.5 md:py-2 md:px-4 rounded-full transition hover:bg-bg/80 flex items-center justify-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0"><path d="M7 22H4v-2h3v2Zm6 0h-2v-3h2v3Zm4 0h-2v-5h2v5Zm5 0h-2v-2h2v2ZM4 20H2v-3h2v3Zm5 0H7v-3h2v3Zm-2-3H4v-2h3v2Zm6 0h-2v-2h2v2Zm9 0h-5v-2h5v2ZM4 13H2v-2h2v2Zm7 0H6v-2h5v2Zm7 0h-3v-2h3v2Zm4 0h-2v-2h2v2Zm-9-2h-2V6h2v5ZM7 9H4V7h3v2Zm13 0h-3V7h3v2ZM4 7H2V4h2v3Zm5 0H7V4h2v3Zm8 0h-2V4h2v3Zm5 0h-2V4h2v3ZM7 4H4V2h3v2Zm6 0h-2V2h2v2Zm7 0h-3V2h3v2Z"/></svg>
+          Ivır Zıvır
+        </button>
+        <button data-etiket="kesif" class="etiketBtn bg-bg/60 text-text text-[9px] sm:text-xs md:text-sm font-semibold px-0.5 py-1.5 md:py-2 md:px-4 rounded-full transition hover:bg-bg/80 flex items-center justify-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0"><path d="M3 22H1v-4h2v4Zm10 0H9v-2h4v2Zm-4-2H5v-2h4v2Zm8 0h-4v-2h4v2ZM5 18H3v-2h2v2Zm14 0h-2v-2h2v2Zm-8-2H5v-2h6v2Zm10 0h-2V4h2v12ZM5 14H3v-4h2v4Zm8 0h-2v-2h2v2Zm-6-4H5V8h2v2Zm6-2H7V6h6v2Zm4-2h-4V4h4v2Zm2-2h-2V2h2v2Z"/></svg>
+          Keşif
+        </button>
+      </div>
+    </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-6 pb-16">
-    <div id="projeGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <section class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+    <div id="projeGrid" class="grid grid-cols-1 gap-6">
+      <!-- Kartlar JS ile eklenecek -->
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 pb-16">
+    <div id="projeGrid" class="grid grid-cols-1 gap-6">
       <!-- Kartlar JS ile eklenecek -->
     </div>
   </section>
@@ -155,32 +192,122 @@
     mobilMenu.classList.remove('flex');
   });
 
+  // ETİKET META — faaliyetler.html'deki sistemin birebir aynısı
+  const ETIKET_META = {
+    'kamp':       { ad: 'Kamp',       renk: '#7BA7AF', textRenk: '#172525', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M5 19h4v-2h2v2h2v-2h2v2h4v-2h2v2h2v2H1v-2h2v-2h2v2Zm2-2H5v-3h2v3Zm6 0h-2v-2h2v2Zm6 0h-2v-3h2v3ZM9 14H7v-3h2v3Zm8 0h-2v-3h2v3Zm-6-3H9V8h2v3Zm4 0h-2V8h2v3Zm-2-3h-2V5h2v3Zm-2-3H9V3h2v2Zm4 0h-2V3h2v2Z"/></svg>` },
+    'yürüyüş':    { ad: 'Yürüyüş',    renk: '#7BA7AF', textRenk: '#172525', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M18 23H10V21H12V19H14V21H16V17H18V23ZM10 15H12V19H10V17H6V15H8V13H4V11H10V15ZM20 17H18V15H20V17ZM14 15H12V13H14V15ZM22 15H20V13H18V11H20V7H22V15ZM4 7H8V9H4V11H2V3H4V7ZM18 11H16V9H18V11ZM16 9H14V3H16V9ZM12 7H10V5H12V7ZM14 3H4V1H14V3Z"/></svg>` },
+    'yüzme':      { ad: 'Yüzme',      renk: '#7BA7AF', textRenk: '#172525', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M18 19h-6v-2h6v2ZM4 9h2v2H4v2h2v2H4v2H2V7h2v2Zm8 8h-2v-2h2v2Zm8 0h-2v-2h2v2Zm-10-2H8v-2h2v2Zm12 0h-2V9h2v6ZM8 13H6v-2h2v2Zm9-1h-2v-2h2v2Zm-7-1H8V9h2v2Zm2-2h-2V7h2v2Zm8 0h-2V7h2v2Zm-2-2h-6V5h6v2Z"/></svg>` },
+    'mangal':     { ad: 'Mangal',     renk: '#7BA7AF', textRenk: '#172525', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M13 16h2v4h2v2H7v-2h2v-4h2v-2h2v2Zm-6 4H5v-2h2v2Zm12 0h-2v-2h2v2ZM5 18H3v-8h2v8Zm16 0h-2v-6h2v6Zm-6-6h-2v-2h2v2Zm4 0h-2v-2h2v2ZM7 10H5V8h2v2Zm6 0h-2V6h2v4Zm4 0h-2V8h2v2ZM9 8H7V6h2v2Zm2-2H9V2h2v4Z"/></svg>` },
+    'oyun':       { ad: 'Oyun',       renk: '#ED254E', textRenk: '#FFFFFF', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-12-7h2v2h-2v2H8v-2H6v-2h2V9h2v2Zm8 4h-2v-2h2v2Zm-2-4h-2V9h2v2Zm4-5H4V4h16v2Z"/></svg>` },
+    'ıvır zıvır': { ad: 'Ivır Zıvır', renk: '#ED254E', textRenk: '#FFFFFF', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M7 22H4v-2h3v2Zm6 0h-2v-3h2v3Zm4 0h-2v-5h2v5Zm5 0h-2v-2h2v2ZM4 20H2v-3h2v3Zm5 0H7v-3h2v3Zm-2-3H4v-2h3v2Zm6 0h-2v-2h2v2Zm9 0h-5v-2h5v2ZM4 13H2v-2h2v2Zm7 0H6v-2h5v2Zm7 0h-3v-2h3v2Zm4 0h-2v-2h2v2Zm-9-2h-2V6h2v5ZM7 9H4V7h3v2Zm13 0h-3V7h3v2ZM4 7H2V4h2v3Zm5 0H7V4h2v3Zm8 0h-2V4h2v3Zm5 0h-2V4h2v3ZM7 4H4V2h3v2Zm6 0h-2V2h2v2Zm7 0h-3V2h3v2Z"/></svg>` },
+    'keşif':      { ad: 'Keşif',      renk: '#ED254E', textRenk: '#FFFFFF', icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M3 22H1v-4h2v4Zm10 0H9v-2h4v2Zm-4-2H5v-2h4v2Zm8 0h-4v-2h4v2ZM5 18H3v-2h2v2Zm14 0h-2v-2h2v2Zm-8-2H5v-2h6v2Zm10 0h-2V4h2v12ZM5 14H3v-4h2v4Zm8 0h-2v-2h2v2Zm-6-4H5V8h2v2Zm6-2H7V6h6v2Zm4-2h-4V4h4v2Zm2-2h-2V2h2v2Z"/></svg>` }
+  };
+
+  // FAALİYETLER'DEKİ kartCiz FONKSİYONUYLA BİREBİR AYNI YAPI: yan yana (resim solda, içerik sağda) + etiket sağ üstte
+  function kartCiz(p) {
+    const anaEtiket = (p.etiketler && p.etiketler[0]) || '';
+    const meta = ETIKET_META[anaEtiket];
+
+    const kart = document.createElement('a');
+    kart.href = p.link;
+    kart.target = '_blank';
+    kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition flex flex-row h-52 sm:h-64';
+    kart.innerHTML = `
+      <div class="w-1/3 flex-shrink-0 h-full bg-bg/50">
+        <img src="${p.gorsel || ''}" alt="${p.ad}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+      </div>
+      <div class="p-3 sm:p-5 flex-1 min-w-0 flex flex-col justify-center">
+        <div class="flex items-start justify-between gap-2 mb-1">
+          <h3 class="text-heading text-base sm:text-xl font-bold leading-snug min-w-0">${p.ad}</h3>
+          ${meta ? `<span style="background-color:${meta.renk};color:${meta.textRenk}" class="text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shrink-0 flex items-center gap-1 -mt-1 sm:-mt-6">${meta.icon}${meta.ad}</span>` : ''}
+        </div>
+        <p class="text-highlight text-[10px] sm:text-sm font-semibold mb-1 sm:mb-2">${p.kisaAciklama || ''}</p>
+        <p class="text-text text-[11px] sm:text-sm mb-2 sm:mb-3 line-clamp-2 sm:line-clamp-none">${p.aciklama || ''}</p>
+        <span class="text-accent text-sm font-semibold">Projeye Git →</span>
+      </div>
+    `;
+    return kart;
+  }
+
 // PROJELERİ JSON'DAN ÇEK VE GÖSTER
+  let tumProjeler = [];
+
+  const ETIKET_IKON = {
+    'oyun': `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-12-7h2v2h-2v2H8v-2H6v-2h2V9h2v2Zm8 4h-2v-2h2v2Zm-2-4h-2V9h2v2Zm4-5H4V4h16v2Z"/></svg>`,
+    'ivirzivir': `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M7 22H4v-2h3v2Zm6 0h-2v-3h2v3Zm4 0h-2v-5h2v5Zm5 0h-2v-2h2v2ZM4 20H2v-3h2v3Zm5 0H7v-3h2v3Zm-2-3H4v-2h3v2Zm6 0h-2v-2h2v2Zm9 0h-5v-2h5v2ZM4 13H2v-2h2v2Zm7 0H6v-2h5v2Zm7 0h-3v-2h3v2Zm4 0h-2v-2h2v2Zm-9-2h-2V6h2v5ZM7 9H4V7h3v2Zm13 0h-3V7h3v2ZM4 7H2V4h2v3Zm5 0H7V4h2v3Zm8 0h-2V4h2v3Zm5 0h-2V4h2v3ZM7 4H4V2h3v2Zm6 0h-2V2h2v2Zm7 0h-3V2h3v2Z"/></svg>`,
+    'kesif': `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3.5 h-3.5"><path d="M3 22H1v-4h2v4Zm10 0H9v-2h4v2Zm-4-2H5v-2h4v2Zm8 0h-4v-2h4v2ZM5 18H3v-2h2v2Zm14 0h-2v-2h2v2Zm-8-2H5v-2h6v2Zm10 0h-2V4h2v12ZM5 14H3v-4h2v4Zm8 0h-2v-2h2v2Zm-6-4H5V8h2v2Zm6-2H7V6h6v2Zm4-2h-4V4h4v2Zm2-2h-2V2h2v2Z"/></svg>`
+  };
+  const ETIKET_AD = { 'oyun': 'Oyun', 'ivirzivir': 'Ivır Zıvır', 'kesif': 'Keşif' };
+  const ETIKET_RENK = '#ED254E';
+
   fetch('data/calismalarim.json')
     .then(response => response.json())
     .then(projeler => {
-      const grid = document.getElementById('projeGrid');
-
-      projeler.forEach(p => {
-        const kart = document.createElement('a');
-        kart.href = p.link;
-        kart.target = '_blank';
-        kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition flex flex-col';
-        kart.innerHTML = `
-          <div class="h-40 bg-bg/50">
-            <img src="${p.gorsel || ''}" class="w-full h-full object-cover" onerror="this.style.display='none'">
-          </div>
-          <div class="p-6 flex flex-col flex-grow">
-  <h3 class="text-heading text-lg font-bold mb-2">${p.ad}</h3>
-  <p class="text-highlight text-sm font-semibold mb-3">${p.kisaAciklama}</p>
-  <p class="text-text text-sm mb-4 flex-grow">${p.aciklama}</p>
-  <span class="text-accent text-sm font-semibold">Projeye Git →</span>
-</div>
-        `;
-        grid.appendChild(kart);
-      });
+      tumProjeler = projeler;
+      renderProjeGrid(tumProjeler);
     })
     .catch(err => console.error('Projeler yüklenemedi:', err));
+
+  function renderProjeGrid(liste) {
+    const grid = document.getElementById('projeGrid');
+    grid.innerHTML = '';
+
+    liste.forEach(p => {
+      const anaEtiket = (p.etiketler && p.etiketler[0]) || '';
+      const etiketIkon = ETIKET_IKON[anaEtiket] || '';
+      const etiketAd = ETIKET_AD[anaEtiket] || '';
+
+            const kart = document.createElement('a');
+      kart.href = p.link;
+      kart.target = '_blank';
+      kart.className = 'bg-card rounded-xl overflow-hidden hover:bg-card/70 transition flex flex-col sm:flex-row relative';
+      kart.innerHTML = `
+        <div class="w-full h-40 sm:w-1/3 sm:h-64 flex-shrink-0 bg-bg/50">
+          <img src="${p.gorsel || ''}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+        <div class="p-4 sm:p-6 flex-1 min-w-0 flex flex-col justify-center relative">
+          ${etiketAd ? `<span style="background-color:${ETIKET_RENK};color:#FFFFFF" class="absolute top-3 right-3 sm:top-6 sm:right-6 text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1">${etiketIkon}${etiketAd}</span>` : ''}
+          <h3 class="text-heading text-base sm:text-xl font-bold leading-snug min-w-0 mb-1 pr-20 sm:pr-20">${p.ad}</h3>
+          <p class="text-highlight text-xs sm:text-base font-semibold mb-1">${p.kisaAciklama}</p>
+          <p class="text-text text-xs sm:text-base mb-2 sm:mb-3">${p.aciklama}</p>
+          <span class="text-accent text-sm font-semibold">Projeye Git →</span>
+        </div>
+      `;
+      grid.appendChild(kart);
+    });
+  }
+
+  // ETİKET FİLTRESİ
+  let aktifEtiket = '';
+
+      function etiketButonlariniGuncelle() {
+    document.querySelectorAll('.etiketBtn').forEach(btn => {
+      const kendiEtiketi = btn.dataset.etiket;
+      if (kendiEtiketi === aktifEtiket) {
+        btn.style.backgroundColor = '#ED254E';
+        btn.style.color = '#FFFFFF';
+        btn.classList.remove('bg-bg/60', 'text-text', 'hover:bg-bg/80');
+      } else {
+        btn.style.backgroundColor = '';
+        btn.style.color = '';
+        btn.classList.add('bg-bg/60', 'text-text', 'hover:bg-bg/80');
+      }
+    });
+  }
+
+  function etiketFiltreUygula() {
+    const filtreli = !aktifEtiket ? tumProjeler : tumProjeler.filter(p => (p.etiketler || []).includes(aktifEtiket));
+    renderProjeGrid(filtreli);
+    etiketButonlariniGuncelle();
+  }
+
+  document.querySelectorAll('.etiketBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const secilen = btn.dataset.etiket;
+      aktifEtiket = (aktifEtiket === secilen) ? '' : secilen;
+      etiketFiltreUygula();
+    });
+  });
 
 </script>
 

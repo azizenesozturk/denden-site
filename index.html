@@ -321,12 +321,28 @@
 
     <div id="sonBlogYazilari" class="grid grid-cols-1 gap-3 md:gap-6"></div>
 
-    <div class="text-center mt-6">
+        <div class="text-center mt-6">
       <a href="blog.html" class="inline-block bg-accent text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition text-sm">
         Blog'u Gör →
       </a>
     </div>
   </section>
+
+  <!-- ÇALIŞMALARIM -->
+  <section class="max-w-6xl mx-auto px-6 py-8">
+    <h2 class="text-heading text-2xl font-bold mb-6">Çalışmalarım</h2>
+
+        <div id="sonCalismalar" class="grid grid-cols-3 gap-2 md:gap-6"></div>
+
+    <div class="text-center mt-6">
+      <a href="calismalarim.html" class="inline-block bg-accent text-white font-semibold px-5 py-2 rounded-lg hover:opacity-90 transition text-sm">
+        Çalışmalarım'ı Gör →
+      </a>
+    </div>
+  </section>
+  
+
+  
   
 
   <!-- HAKKIMDA ŞERİDİ -->
@@ -493,7 +509,40 @@ tumIcerik.forEach(item => {
   `;
   container.appendChild(kart);
 });
-  }).catch(err => console.error('Son blog yazıları yüklenemedi:', err));
+    }).catch(err => console.error('Son blog yazıları yüklenemedi:', err));
+
+  // ANASAYFA — SON ÇALIŞMALARI ÇEK VE GÖSTER (sadece görsel + isim, kare)
+  fetch('data/calismalarim.json')
+    .then(r => r.json())
+    .then(calismalar => {
+      const container = document.getElementById('sonCalismalar');
+      container.innerHTML = '';
+
+      const gosterilecekler = calismalar.slice(0, 3);
+
+      if (gosterilecekler.length === 0) {
+        container.innerHTML = '<p class="text-text">Henüz çalışma eklenmedi.</p>';
+        return;
+      }
+
+            gosterilecekler.forEach(p => {
+        const kart = document.createElement('a');
+        kart.href = p.link;
+        kart.target = '_blank';
+                kart.className = 'bg-card rounded-xl p-2.5 md:p-5 flex flex-col hover:bg-card/70 transition group';
+        kart.innerHTML = `
+          <h3 class="text-heading text-[11px] md:text-lg font-bold mb-1 truncate">${p.ad}</h3>
+          <p class="text-text text-[9px] md:text-sm font-semibold mb-2 md:mb-4 line-clamp-2 md:line-clamp-none">${p.kisaAciklama}</p>
+          <div class="rounded-lg overflow-hidden bg-bg/50 aspect-video mb-2 md:mb-4">
+            <img src="${p.gorsel || ''}" alt="${p.ad}" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300" onerror="this.style.display='none'">
+          </div>
+          <span class="text-accent text-[9px] md:text-sm font-semibold mt-auto">İncele →</span>
+        `;
+        container.appendChild(kart);
+      });
+    })
+    .catch(err => console.error('Çalışmalar yüklenemedi:', err));
+
   // ANASAYFA — GÜNCEL DUYURUYU ÇEK VE GÖSTER
   fetch('data/duyuru.json')
     .then(response => response.json())
