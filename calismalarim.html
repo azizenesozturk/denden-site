@@ -264,11 +264,13 @@
       kart.innerHTML = `
         <div class="w-full h-40 sm:w-1/3 sm:h-auto bg-bg/50 relative flex-shrink-0">
           <img src="${p.gorsel || ''}" class="w-full h-full object-cover" onerror="this.style.display='none'">
-          ${etiketAd ? `<span style="background-color:${ETIKET_RENK};color:#FFFFFF" class="absolute top-3 right-3 text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1 sm:hidden">${etiketIkon}${etiketAd}</span>` : ''}
         </div>
         <div class="p-4 sm:p-6 flex-1 min-w-0 flex flex-col justify-center relative">
-          ${etiketAd ? `<span style="background-color:${ETIKET_RENK};color:#FFFFFF" class="hidden sm:flex absolute top-4 right-4 sm:top-6 sm:right-6 text-xs font-semibold px-3 py-1 rounded-full items-center gap-1">${etiketIkon}${etiketAd}</span>` : ''}
-          <h3 class="text-heading text-base sm:text-xl font-bold leading-snug min-w-0 mb-1 sm:pr-20">${p.ad}</h3>
+          <div class="flex items-start justify-between gap-2 mb-1">
+            <h3 class="text-heading text-base sm:text-xl font-bold leading-snug min-w-0 sm:pr-20">${p.ad}</h3>
+            ${etiketAd ? `<span style="background-color:${ETIKET_RENK};color:#FFFFFF" class="text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shrink-0 flex items-center gap-1 sm:hidden">${etiketIkon}${etiketAd}</span>` : ''}
+          </div>
+          ${etiketAd ? `<span style="background-color:${ETIKET_RENK};color:#FFFFFF" class="hidden sm:flex absolute top-6 right-6 text-xs font-semibold px-3 py-1 rounded-full items-center gap-1">${etiketIkon}${etiketAd}</span>` : ''}
           <p class="text-highlight text-xs sm:text-base font-semibold mb-1">${p.kisaAciklama}</p>
           <p class="text-text text-xs sm:text-base mb-2 sm:mb-3">${p.aciklama}</p>
           <span class="text-accent text-sm font-semibold">Projeye Git →</span>
