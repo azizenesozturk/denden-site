@@ -119,6 +119,7 @@
 
 <main>
 
+    <div id="blogKapak"></div>
   <section class="max-w-3xl mx-auto px-6 py-12">
     <div id="icindekiler" class="bg-card rounded-xl p-5 mb-8 hidden"></div>
     <div id="blogIcerik">
@@ -183,12 +184,14 @@
       // Markdown içeriği HTML'e çevir
       const icerikHTML = marked.parse(b.icerik);
 
-      container.innerHTML = `
-        <div class="h-72 bg-bg/50 rounded-xl mb-6 overflow-hidden">
-          <img src="${b.kapak}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+            document.getElementById('blogKapak').innerHTML = `
+        <div class="w-full h-56 sm:h-72 bg-bg/50 overflow-hidden">
+          <img src="${b.kapak}" class="w-full h-full object-cover" style="object-position: center 40%;" onerror="this.style.display='none'">
         </div>
+      `;
 
-        <h1 class="text-heading text-3xl font-bold mt-2 mb-2">${b.baslik}</h1>
+      container.innerHTML = `
+        <h1 class="text-heading text-3xl font-bold mt-6 mb-2">${b.baslik}</h1>
         <p class="text-highlight text-sm mb-8 flex items-center gap-2">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 22H5v-2h14v2ZM5 8h14V6h2v14h-2V10H5v10H3V6h2v2Zm4 10H7v-2h2v2Zm4 0h-2v-2h2v2Zm-4-4H7v-2h2v2Zm4 0h-2v-2h2v2Zm4 0h-2v-2h2v2ZM9 4h6V2h2v2h2v2H5V4h2V2h2v2Z"/></svg>
           ${b.tarih}

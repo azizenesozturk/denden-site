@@ -108,6 +108,7 @@
 
 <main>
 
+    <div id="faaliyetKapak"></div>
   <section class="max-w-4xl mx-auto px-6 py-12">
     <div id="faaliyetIcerik">
       <!-- İçerik JS ile doldurulacak -->
@@ -207,11 +208,13 @@
 
       
 
-      container.innerHTML = `
-        <div class="h-72 bg-bg/50 rounded-xl mb-4 overflow-hidden">
-          <img src="${f.kapak}" class="w-full h-full object-cover" style="object-position: center 65%;" onerror="this.style.display='none'">
+            document.getElementById('faaliyetKapak').innerHTML = `
+        <div class="w-full h-56 sm:h-72 bg-bg/50 overflow-hidden">
+          <img src="${f.kapak}" class="w-full h-full object-cover" style="object-position: center 40%;" onerror="this.style.display='none'">
         </div>
+      `;
 
+      container.innerHTML = `
         <div class="flex items-start justify-between gap-3 mb-6">
           <h1 class="text-heading text-3xl font-bold">${f.rota}</h1>
           ${etiketMeta ? `<span style="background-color:${etiketMeta.renk};color:${etiketMeta.textRenk}" class="text-xs font-semibold px-3 py-1 rounded-full shrink-0 flex items-center gap-1 mt-1">${etiketMeta.icon}${etiketMeta.ad}</span>` : ''}
@@ -284,7 +287,7 @@
           <!-- YÜRÜYÜŞ -->
           <div class="col-span-2 flex justify-center">
             <div class="bg-card rounded-xl p-2.5 sm:p-4 flex flex-col items-center justify-center text-center gap-1 min-h-[68px] sm:min-h-[76px] w-full sm:w-1/2">
-              <svg class="text-highlight w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 22H4v-2h2v2Zm14 0h-3v-2h3v2Zm-3-2h-2v-3h2v3Zm5 0h-2v-3h2v3ZM6 18H4v-4h2v4Zm14-1h-3v-2h3v2Zm-5-3H6v-2h9v2Zm2-10h2v2h2v2h-4v4h-2V8h-4V6h2V4h2V2h2v2ZM4 8H2V6h2v2Zm4 0H6V6h2v2ZM6 6H4V4h2v2ZM4 4H2V2h2v2Zm4 0H6V2h2v2Z"/></svg>
+                            <svg class="text-highlight w-4 h-4 sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor"><path d="M18 23H10V21H12V19H14V21H16V17H18V23ZM10 15H12V19H10V17H6V15H8V13H4V11H10V15ZM20 17H18V15H20V17ZM14 15H12V13H14V15ZM22 15H20V13H18V11H20V7H22V15ZM4 7H8V9H4V11H2V3H4V7ZM18 11H16V9H18V11ZM16 9H14V3H16V9ZM12 7H10V5H12V7ZM14 3H4V1H14V3Z"/></svg>
               <div>
                 <p class="text-heading text-xs sm:text-sm font-semibold">Yürüyüş</p>
                 <p class="text-text text-xs sm:text-sm">5 km</p>
