@@ -514,17 +514,14 @@ if (!oyunBasladi) {
         localStorage.setItem('enYuksekSkor', enYuksekSkor);
       }
 
-      const bittiDonguIndex = Math.floor(skor / 500) % 2;
-const bittiRenk = bittiDonguIndex === 0 ? '#2C3E3E' : '#C1AB85';
-
-ctx.fillStyle = 'rgba(26, 38, 38, 0.8)';
+      ctx.fillStyle = 'rgba(26, 38, 38, 0.8)';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.fillStyle = '#F3701E';
 ctx.font = 'bold 24px sans-serif';
 ctx.textAlign = 'center';
 ctx.fillText('Oyun Bitti', canvas.width / 2, canvas.height / 2 - 15);
 ctx.font = '16px sans-serif';
-ctx.fillStyle = bittiRenk;
+ctx.fillStyle = '#FFFFFF';
 ctx.fillText('Skor: ' + Math.floor(skor) + '  —  Yeniden başlamak için tıkla', canvas.width / 2, canvas.height / 2 + 15);
 return;
     }
