@@ -63,37 +63,40 @@
     ]
   },
   {
-    "id": "yilan-kalesi-2026",
-    "tarih": "2026-03-13",
-    "rota": "Yılan Kalesi",
-    "bolge": "Adana/Ceyhan",
-    "zorluk": "Orta",
-    "ekip": [
-      "Ben (tek gittim)"
-    ],
-    "havaDurumu": "Güneşli, bulutlu",
-    "ekipman": [
-      "Çanta",
-      "Termos",
-      "Yiyecekler"
-    ],
-    "kapak": "images/faaliyetler/yilan-kalesi-2026/kapak.jpeg",
-    "detaylar": "Adana - Ceyhan karayolu üzerinden, tabelaları takip ederek ulaşılıyor. Yürüyüş yaklaşık 1.5 saat sürüyor. Rota orta zorlukta, patika kısmen belirgin.",
-    "ani": "Yılan Kalesi'ne tek başıma çıktım. Adana/Ceyhan bölgesindeki bu tarihi kale, hem doğa yürüyüşü hem de tarih meraklıları için güzel bir rota.",
-    "sonBasvuruTarihi": "",
-    "fotograflar": [
-      {
-        "url": "images/faaliyetler/yilan-kalesi-2026/foto1.jpeg",
-        "aciklama": ""
-      },
-      {
-        "url": "images/faaliyetler/yilan-kalesi-2026/foto2.jpeg",
-        "aciklama": ""
-      },
-      {
-        "url": "images/faaliyetler/yilan-kalesi-2026/foto3.jpeg",
-        "aciklama": ""
-      }
-    ]
-  }
+  "id": "yilan-kalesi-2026",
+  "tarih": "2026-03-13",
+  "rota": "Yılan Kalesi",
+  "bolge": "Adana/Ceyhan",
+  "zorluk": "Orta",
+  "ekip": [
+    "Ben (tek gittim)"
+  ],
+  "havaDurumu": "Güneşli, bulutlu",
+  "saat": "09:00",
+  "etkinlik": "Yürüyüş",
+  "mesafeKm": 9.1,
+  "ekipman": [
+    "Çanta",
+    "Termos",
+    "Yiyecekler"
+  ],
+  "kapak": "images/faaliyetler/yilan-kalesi-2026/kapak.jpeg",
+  "detaylar": "Adana - Ceyhan karayolu üzerinden, tabelaları takip ederek ulaşılıyor. Yürüyüş yaklaşık 1.5 saat sürüyor. Rota orta zorlukta, patika kısmen belirgin.",
+  "ani": "Herkesin gittiği o sıradan rotalardan sıkıldıysanız, gerilim, tarih ve keşif dolu bir macera sizi bekliyor. Yılan Kalesi'ni ilk gördüğümde aklımdan tek bir şey geçiyormuş gibi hissettim: Sanki Harry Potter'daki o devasa, gizemli şatolardan birinin tam ortasındayım. Yüzyıllara meydan okuyan o tarihi duvarlar hâlâ dimdik ayakta ve insana adeta başka bir çağda olduğunu fısıldıyor. Asıl heyecan ise kaleye varınca başlıyor. Surlarından içeri adım atmak, kayalara tırmanmak cidden cesaret istiyor. İç kısımlara doğru ilerlemek biraz tehlikeli ama tam da bu yüzden adrenalin tutkunları için biçilmiş kaftan. Sınırlarını zorlamayı sevenler için burası keşfedilmeyi bekleyen vahşi bir cennet. Tüm bu tırmanış ve maceranın ardından kalenin etekleri ise tam piknik yapmalık.",
+  "sonBasvuruTarihi": "",
+  "fotograflar": [
+    {
+      "url": "images/faaliyetler/yilan-kalesi-2026/foto1.jpeg",
+      "aciklama": ""
+    },
+    {
+      "url": "images/faaliyetler/yilan-kalesi-2026/foto2.jpeg",
+      "aciklama": ""
+    },
+    {
+      "url": "images/faaliyetler/yilan-kalesi-2026/foto3.jpeg",
+      "aciklama": ""
+    }
+  ]
+}
 ]

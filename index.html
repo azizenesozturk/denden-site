@@ -412,7 +412,7 @@
 ]).then(([faaliyetler, blogYazilari, calismalar]) => {
   const toplamKm = faaliyetler.reduce((toplam, f) => toplam + (parseFloat(f.mesafeKm) || 0), 0);
 
-  document.getElementById('istatistikKm').textContent = toplamKm.toFixed(0) + ' km';
+  document.getElementById('istatistikKm').textContent = toplamKm.toFixed(1) + ' km';
 document.getElementById('istatistikFaaliyet').textContent = faaliyetler.length;
 document.getElementById('istatistikBlog').textContent = blogYazilari.length;
 document.getElementById('istatistikCalisma').textContent = calismalar.length;
