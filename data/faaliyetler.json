@@ -1,4 +1,30 @@
 [
+ 
+{
+  "id": "savranda-kalesi",
+  "rota": "Savranda Kalesi",
+  "tarih": "2026-04-21",
+  "saat": "09:00",
+  "bolge": "Bahçe/Kalecik Köyü",
+  "havaDurumu": "Güneşli",
+  "etkinlik": "Yürüyüş",
+  "mesafeKm": 3.5,
+  "ekipman": ["Çanta", "Yiyecek"],
+  "ekip": ["Aziz", "Soner", "Baran", "Miraç"],
+  "detaylar": "Güzel bir doğa yolculuğu bizi bekliyor ve bir de sürpriz bir karşılaşma olacak.",
+  "ani": "Yerlileri hariç kimsenin bilmediği o saklı cennete, köylü bir arkadaşımızın rehberliğinde ulaştık. Amanoslar'dan sonra gördüğüm en büyüleyici yer burası oldu. Rotalarda önce sakin bir baraj gölü ve tarihi bir kale karşılıyor sizi. Asıl sürpriz ise bu yıl bol yağış sayesinde coşan, sadece şanslı zamanlarda açılan o yapay şelale. Doğanın en saf halini ve kalabalıktan uzak bir kaçış arayanlar için kelimenin tam anlamıyla bir gizli hazine.",
+  "kapak": "images/faaliyetler/savranda-kalesi/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/savranda-kalesi/1.jpeg",
+    "images/faaliyetler/savranda-kalesi/2.jpeg",
+    "images/faaliyetler/savranda-kalesi/3.jpeg",
+    "images/faaliyetler/savranda-kalesi/4.jpeg",
+    "images/faaliyetler/savranda-kalesi/5.jpeg"
+  ],
+  "etiketler": ["yürüyüş"],
+  "oneCikan": false
+},
+  
   {
     "id": "karasu-selalesi-2026",
     "tarih": "2026-04-17",
