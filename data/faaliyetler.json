@@ -1,4 +1,111 @@
 [
+
+  {
+  "id": "amanos-daglari-2026-gun3",
+  "rota": "Amanos Dağları 3 Gün",
+  "tarih": "2026-05-03",
+  "saat": "10:00",
+  "bolge": "Osmaniye/Amanoslar",
+  "havaDurumu": "Güneşli",
+  "etkinlik": "Kamp",
+  "mesafeKm": 14,
+  "ekipman": ["75 litrelik çanta", "Çadır", "Mat", "Fener", "Uyku tulumu", "Yürüyüş çantası", "3 günlük yiyecek"],
+  "ekip": ["Aziz", "Miraç", "Yılmaz", "Baran", "Ayham", "Hamza", "Yasemin"],
+  "detaylar": "ODAK ve belediyenin düzenlediği Amanos Dağları'ndaki yürüyüş etkinliğinin 3. ve son günü.",
+  "ani": "Son gündü. Bir yandan artık yatağıma kavuşacağım diye bir rahatlık vardı, diğer yandan bu güzelliği son görüşüm diye üzülüyordum. Yürüyüşe sohbetler ve müzikler eşliğinde devam ettik. Yılmaz bana bir hikaye anlattı: 'Halay çeken köpek'. O hikayeyi anlattığım bir video da var, ona bakabilirsiniz. Yürüyüş boyunca böyle hikayeler ve güzel manzaralarla geçti.",
+  "kapak": "images/faaliyetler/amanos-daglari-2026-gun3/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/amanos-daglari-2026-gun3/1.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun3/2.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun3/3.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun3/4.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun3/5.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun3/6.jpeg"
+  ],
+  "etiketler": ["kamp"],
+  "oneCikan": false
+},
+  
+  {
+  "id": "amanos-daglari-2026-gun2",
+  "rota": "Amanos Dağları 2 Gün",
+  "tarih": "2026-05-02",
+  "saat": "10:00",
+  "bolge": "Osmaniye/Amanoslar",
+  "havaDurumu": "Karlı ve çamurlu",
+  "etkinlik": "Kamp",
+  "mesafeKm": 20.62,
+  "ekipman": ["75 litrelik çanta", "Çadır", "Mat", "Fener", "Uyku tulumu", "Yürüyüş çantası", "3 günlük yiyecek"],
+  "ekip": ["Aziz", "Miraç", "Yılmaz", "Baran", "Ayham", "Hamza", "Yasemin"],
+  "detaylar": "ODAK ve belediyenin düzenlediği Amanos Dağları'ndaki yürüyüş etkinliğinin 2. günü.",
+  "ani": "Yine yürüyorduk ama beni asıl şaşırtan kar vardı, hiç karlı bir yerde kamp yapacağımızı düşünmemiştik. Diğer kamp alanı zaten çok soğuktu, burada kesin donardık, hem çamur hem kar vardı, az da değil oldukça fazlaydı. Ama çok eğlenceliydi, o karın ortasında ateş yakmak, sohbet etmek, manzarası da harikaydı.",
+  "kapak": "images/faaliyetler/amanos-daglari-2026-gun2/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/amanos-daglari-2026-gun2/1.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/2.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/3.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/4.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/5.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/6.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/7.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/8.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/9.jpeg",
+    "images/faaliyetler/amanos-daglari-2026-gun2/10.jpeg"
+  ],
+  "etiketler": ["kamp"],
+  "oneCikan": false
+},
+
+  {
+  "id": "amanos-daglari-2026",
+  "rota": "Amanos Dağları 1 Gün",
+  "tarih": "2026-05-01",
+  "saat": "10:00",
+  "bolge": "Osmaniye/Amanoslar",
+  "havaDurumu": "Sabah güneşli, akşama doğru yağmur",
+  "etkinlik": "Kamp",
+  "mesafeKm": 11.62,
+  "ekipman": ["75 litrelik çanta", "Çadır", "Mat", "Fener", "Uyku tulumu", "Yürüyüş çantası", "3 günlük yiyecek"],
+  "ekip": ["Aziz", "Miraç", "Yılmaz", "Baran", "Ayham"],
+  "detaylar": "ODAK ve belediyenin düzenlediği Amanos Dağları'ndaki yürüyüş etkinliğine katılacağız.",
+  "ani": "Bu etkinliği gördüğümde ilk başta kimsenin benimle gelmeyeceğini düşünmüştüm, yine bizimkilere atmıştım ama 'gitmeyiz' demişlerdi, bende unutmuştum. Sonra Baran bana böyle bir etkinlik olduğunu tekrar hatırlattı, bende bizimkilere tekrar sordum. Miraç 'gelirim' deyince çok şaşırdım, sonra diğerlerini de ikna ettik. Redbull standında Filistinli, Erasmus öğrencisi bir arkadaşla tanıştım. Bana 'burada hiçbir şey yok' dedi, ben de ona Osmaniye'nin aslında güzel bir yer olduğunu göstermek istedim ve bizimle kamp yapmak isteyip istemediğini sordum. O da 'ilginç olur' dedi ve bizimle geldi. Amanos yolculuğu gördüğüm en güzel yerdi, tertemiz, elenmemiş, tam doğallığıyla kalmıştı. Yine gitmek istiyorum.",
+  "kapak": "images/faaliyetler/amanos-daglari-2026/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/amanos-daglari-2026/1.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/2.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/3.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/4.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/5.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/6.jpeg",
+    "images/faaliyetler/amanos-daglari-2026/7.jpeg"
+  ],
+  "etiketler": ["kamp"],
+  "oneCikan": false
+},
+
+  {
+  "id": "savranda-kalesi-mangal-2026",
+  "rota": "Savranda Kalesi",
+  "tarih": "2026-04-25",
+  "saat": "10:00",
+  "bolge": "Osmaniye/Bahçe",
+  "havaDurumu": "Şiddetli rüzgarlı",
+  "etkinlik": "Mangal",
+  "mesafeKm": 6.62,
+  "ekipman": ["Izgara teli", "Çanta", "Yiyecekler"],
+  "ekip": ["Aziz", "Soner", "Baran"],
+  "detaylar": "Mangal yakıp kaleye çıkacağız, ardından yürüyüş yapacağız.",
+  "ani": "Osmaniye'ye geldiğimizden beri hiç mangal yapmamıştık, böyle güzel bir yer bulmuşken mangal yakalım dedik. Hem balık tutmaya çalıştık hem de mangalımızla uğraştık, fazla rüzgarlı olduğu için zor oldu ama Soner Bey sayesinde başardık. Mangaldan sonra kaleye çıkıp biraz gezdik, sonra bu sefer otostop çekmeden yürüyerek yola kadar indik ve otobüse bindik.",
+  "kapak": "images/faaliyetler/savranda-kalesi-mangal-2026/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/savranda-kalesi-mangal-2026/1.jpeg",
+    "images/faaliyetler/savranda-kalesi-mangal-2026/2.jpeg",
+    "images/faaliyetler/savranda-kalesi-mangal-2026/3.jpeg",
+    "images/faaliyetler/savranda-kalesi-mangal-2026/4.jpeg"
+  ],
+  "etiketler": ["mangal"],
+  "oneCikan": false
+},
  
 {
   "id": "savranda-kalesi",
