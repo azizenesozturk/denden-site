@@ -1,4 +1,31 @@
 [
+
+{
+  "id": "karacay-selalesi-2026",
+  "rota": "Karaçay Şelalesi",
+  "tarih": "2026-05-25",
+  "saat": "11:00",
+  "bolge": "Osmaniye/Merkez",
+  "havaDurumu": "Güneşli, bulutlu, yağmur gösterdi ama yağmadı",
+  "etkinlik": "Yürüyüş",
+  "mesafeKm": 4,
+  "ekipman": ["Çanta", "Yiyecekler"],
+  "ekip": ["Aziz", "Baran", "Ayham", "Hamza", "Nana", "Yasemin"],
+  "detaylar": "Karaçay parkuru, götü boklularla.",
+  "ani": "Osmaniye'ye geldiğimden beri en az 10 kere gitmişimdir, tek ya da arkadaşlarımla bir çok kez parkuru tamamladık. Hatta bizim zamanımızda orada o tahta yol yoktu. Şimdi oralar çöp götürüyor, keşke eskisi gibi olsa, sadece parkuru tamamlayan gidebilse, daha temiz ve daha özel olurdu. Bu seferde götü boklu tayfayla gidiyorum. Bu yıl çok yağmur yağdığı için su çok fazla akıntılı ve yükselmişti, sudan diğer tarafa geçmek neredeyse imkansızdı. Tabii bizim delilerle oraya geçmeye çalıştık, birbirimize ip bağladık, sıkıca tutunduk ve geçtik ama çok zordu. Baran ölüyordu, az daha bizi de yanında götürüyordu, ucunda ölüm olmadan zevki çıkmıyor. Keşke fotoğrafı olsaydı ama yok, hepimiz sudan birlikte geçmeye çalıştığımız için çekemedik, yapay zeka ile bir görsel oluşturdum o anı için. Birkaç saat mahsur kaldık orada, ben ve Baran nehirden diğer tarafa geçmeye çalışıyorduk ama su daha da yükselmiş ve akıntılıydı, geçemedik. Hava karardı, biz hâlâ oradaydık. Sonra aklıma bir fikir geldi, o yeni yapılan köprüden yukarı doğru tırmandık. Sonra orada bir çift bizi arabalarına almaya kabul etti, bizde bindik. Ben kendimi feda edip Hamza'nın üzerine oturdum.",
+  "kapak": "images/faaliyetler/karacay-selalesi-2026/kapak.jpeg",
+  "fotograflar": [
+    "images/faaliyetler/karacay-selalesi-2026/1.jpeg",
+    "images/faaliyetler/karacay-selalesi-2026/2.jpeg",
+    "images/faaliyetler/karacay-selalesi-2026/3.jpeg",
+    "images/faaliyetler/karacay-selalesi-2026/4.jpeg",
+    "images/faaliyetler/karacay-selalesi-2026/5.jpeg"
+    
+  ],
+  "etiketler": ["yürüyüş"],
+  "oneCikan": false
+},
+
     {
     "id": "yazilim-ogrenirken-kaybolmak",
     "tarih": "2026-08-14",
