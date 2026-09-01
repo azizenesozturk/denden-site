@@ -144,7 +144,7 @@
       <p id="hakkindaDevam" class="hidden sm:block">Siteyi ilk kurma amacım, benimle birlikte garip yerlere gelip kamp yapmak isteyecek, yollara düşmeyi göze alacak insanları bulmaktı. Zamanla içine başka şeyler de ekledim, daha da kişiselleştirdim ama temel amacı hâlâ bu. Keşfetmeyi seven biriysen, siteye göz atıp iletişim kısmından bana ulaşabilirsin.</p>
 
       <button id="devamiOkuBtn" onclick="devamiOku()" class="sm:hidden text-sm text-[#027c7d] hover:text-highlight transition-colors">
-        Devamını Oku
+        <span id="devamiOkuBtnText">Devamını Oku</span>
       </button>
     </div>
     <!-- OKUL / BÖLÜM + ÇÖP İKONU -->
@@ -162,7 +162,7 @@
       
     </div>
 
-            <!-- MÜZİK -->
+        <!-- MÜZİK -->
     <div class="mt-14">
       <div class="flex items-center gap-2.5 mb-4">
         <svg class="w-7 h-7 text-muzikRenk shrink-0" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7h2v5H3zm4 0h2v13H7zm4-3h2v16h-2zm4 0h2v13h-2zM5 5h2v2H5zm4 15h2v2H9zm4-18h2v2h-2zm4 15h2v2h-2zm2-5h2v5h-2zm2-2h2v2h-2zM1 12h2v2H1z"/></svg>
@@ -171,51 +171,91 @@
 
       <!-- ÖNE ÇIKAN ŞARKI: yatay kart -->
       <div class="flex gap-4 bg-card rounded-lg overflow-hidden mb-4 border-2 border-muzikRenk">
-        <div class="w-28 sm:w-36 shrink-0 aspect-square bg-bg/50 flex items-center justify-center text-text/30 text-xs">
-          KAPAK_GORSELI
-        </div>
-        <div class="flex-1 min-w-0 py-3 pr-4 flex flex-col justify-center">
-          <p class="font-medium text-white truncate">SARKI_ADI</p>
-          <p class="text-sm text-text/60 mt-1 leading-snug">
-            KISA_ACIKLAMA_YAZISI
-          </p>
-          <button onclick="muzikCal(this)" data-src="ONIZLEME_MP3_YOLU"
-            class="mt-3 flex items-center justify-start gap-1.5 text-xs text-[#027c7d] hover:text-highlight transition-colors w-full">
-            <svg class="w-4 h-4 play-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <span class="play-label">Dinle</span>
-          </button>
-          <audio class="hidden-audio hidden"></audio>
-        </div>
+        <div class="w-28 sm:w-36 shrink-0 aspect-square bg-bg/50 overflow-hidden">
+  <img src="images/adamlar.jpg" alt="Sarılırım Birine" class="w-full h-full object-cover">
+</div>
+   <div class="flex-1 min-w-0 py-3 pr-4 flex flex-col justify-center">
+  <p class="text-sm text-text/60 truncate">Adamlar</p>
+  <p class="text-lg font-medium text-white truncate">Sarılırım Birine</p>
+  <button onclick="muzikCal(this)" data-src="audio/sarilirim-birine.m4a"
+    class="mt-3 flex items-center justify-center gap-2 text-sm text-[#027c7d] hover:text-highlight transition-colors w-full">
+    <svg class="w-6 h-6 play-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M9 5h2v2H9v10h2v2H9v2H7V3h2v2Zm4 12h-2v-2h2v2Zm2-2h-2v-2h2v2Zm2-2h-2v-2h2v2Zm-2-2h-2V9h2v2Zm-2-2h-2V7h2v2Z"/></svg>
+    <span class="play-label">Dinliyorum</span>
+  </button>
+  <audio class="hidden-audio hidden"></audio>
+</div>
       </div>
 
-      <!-- DİĞER ŞARKILAR: küçük grid, başta hepsi gizli -->
+            <!-- DİĞER ŞARKILAR: küçük grid, başta hepsi gizli -->
       <div id="muzikGrid" class="grid grid-cols-3 gap-2">
 
-        <a href="YOUTUBE_LINKI_2" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-square bg-bg/50 flex items-center justify-center text-text/30 text-[10px]">KAPAK_GORSELI</div>
-          <div class="p-2"><p class="text-xs font-medium text-white truncate">Sokak Lambası</p></div>
+        <a href="https://youtu.be/Dfinmno4rlE?si=SPHfj8kYtB09GhBD" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/Dfinmno4rlE/hqdefault.jpg" alt="Aç Kapıyı Gir İçeri" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Aç Kapıyı Gir İçeri</p></div>
         </a>
 
-        <a href="YOUTUBE_LINKI_3" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-square bg-bg/50 flex items-center justify-center text-text/30 text-[10px]">KAPAK_GORSELI</div>
-          <div class="p-2"><p class="text-xs font-medium text-white truncate">SARKI_ADI_3</p></div>
+        <a href="https://youtu.be/Lw4unI3tVNQ?si=fa86wBnK9FpO4fJ9" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/Lw4unI3tVNQ/hqdefault.jpg" alt="Cambaz" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Cambaz</p></div>
         </a>
 
-        <a href="YOUTUBE_LINKI_4" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-square bg-bg/50 flex items-center justify-center text-text/30 text-[10px]">KAPAK_GORSELI</div>
-          <div class="p-2"><p class="text-xs font-medium text-white truncate">SARKI_ADI_4</p></div>
+        <a href="https://youtu.be/-_0ExHpd0i8?si=af557zMOqxPx-c_s" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/-_0ExHpd0i8/hqdefault.jpg" alt="Entarisi Ala Benziyor" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Entarisi Ala Benziyor</p></div>
         </a>
 
-        <a href="YOUTUBE_LINKI_5" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-square bg-bg/50 flex items-center justify-center text-text/30 text-[10px]">KAPAK_GORSELI</div>
-          <div class="p-2"><p class="text-xs font-medium text-white truncate">SARKI_ADI_5</p></div>
+        <a href="https://youtu.be/diuPSwSIpYM?si=_xif4icjrlGM33Eh" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/diuPSwSIpYM/hqdefault.jpg" alt="Yekte" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Yekte</p></div>
+        </a>
+
+        <a href="https://youtu.be/hgdIv5RVuTg?si=9JA_YNN3tdq27qG5" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/hgdIv5RVuTg/hqdefault.jpg" alt="Halkalı Şeker" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Halkalı Şeker</p></div>
+        </a>
+
+        <a href="https://youtu.be/SHeTDCxiE-U?si=RO9_cIqcqimX-8Lf" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/SHeTDCxiE-U/hqdefault.jpg" alt="Bir Kadın Çizeceksin" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Bir Kadın Çizeceksin</p></div>
+        </a>
+
+        <a href="https://youtu.be/12oIkuOrkMo?si=iLwy7hg-SuJ_3lhT" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/12oIkuOrkMo/hqdefault.jpg" alt="Seni Kendime Sakladım" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Seni Kendime Sakladım</p></div>
+        </a>
+
+        <a href="https://youtu.be/nFERxi1UgIs?si=eUpRbDHr0KZ82aEf" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/nFERxi1UgIs/hqdefault.jpg" alt="Bu Son Olsun" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Bu Son Olsun</p></div>
+        </a>
+
+        <a href="https://youtu.be/X8MpZYFuTXA?si=BPQHa8e7u3H9aSoR" target="_blank" rel="noopener" class="muzik-extra hidden bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
+          <div class="aspect-square bg-bg/50 overflow-hidden">
+            <img src="https://img.youtube.com/vi/X8MpZYFuTXA/hqdefault.jpg" alt="Beni Benimle Bırak" class="w-full h-full object-cover">
+          </div>
+          <div class="p-2"><p class="text-xs font-medium text-white truncate">Beni Benimle Bırak</p></div>
         </a>
       </div>
 
       <button type="button" onclick="muzikDahaFazla(this)" class="mt-4 text-sm text-[#027c7d] md:hover:text-highlight transition-colors">
-        Daha Fazla Göster
-      </button>
-    </div>
+  <span id="muzikBtnText">Daha Fazla Göster</span>
+</button>
 
     <!-- FİLM (yatay kaydırmalı) -->
     <div class="mt-14">
@@ -348,17 +388,28 @@
   });
 
   function devamiOku() {
-    document.getElementById('hakkindaDevam').classList.remove('hidden');
-    document.getElementById('okulBolum').classList.remove('hidden');
-    document.getElementById('okulBolum').classList.add('flex');
-    document.getElementById('devamiOkuBtn').classList.add('hidden');
+    const devam = document.getElementById('hakkindaDevam');
+    const okul = document.getElementById('okulBolum');
+    const btnText = document.getElementById('devamiOkuBtnText');
+    const acik = !devam.classList.contains('hidden');
+
+    devam.classList.toggle('hidden', acik);
+    okul.classList.toggle('hidden', acik);
+    okul.classList.toggle('flex', !acik);
+
+    btnText.textContent = acik ? 'Devamını Oku' : 'Daha Az Göster';
   }
 
   function muzikDahaFazla(btn) {
-    document.querySelectorAll('.muzik-extra').forEach(function (el) {
-      el.classList.remove('hidden');
+    const extras = document.querySelectorAll('.muzik-extra');
+    const btnText = document.getElementById('muzikBtnText');
+    const acik = extras[0] && !extras[0].classList.contains('hidden');
+
+    extras.forEach(function (el) {
+      el.classList.toggle('hidden', acik);
     });
-    btn.classList.add('hidden');
+
+    btnText.textContent = acik ? 'Daha Fazla Göster' : 'Daha Az Göster';
   }
 
   function muzikCal(btn) {
@@ -371,11 +422,11 @@
     if (audio.paused) {
       audio.play();
       label.textContent = 'Duraklat';
-      icon.innerHTML = '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+      icon.innerHTML = '<path d="M10 20H4V4h6v16Zm8-16v16h-6V4h6Zm-4 2v12h2V6h-2ZM6 18h2V6H6v12Z"/>';
     } else {
       audio.pause();
-      label.textContent = 'Dinle';
-      icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+      label.textContent = 'Dinliyorum';
+      icon.innerHTML = '<path d="M9 5h2v2H9v10h2v2H9v2H7V3h2v2Zm4 12h-2v-2h2v2Zm2-2h-2v-2h2v2Zm2-2h-2v-2h2v2Zm-2-2h-2V9h2v2Zm-2-2h-2V7h2v2Z"/>';
     }
   }
 </script>
