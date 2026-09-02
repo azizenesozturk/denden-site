@@ -129,14 +129,14 @@
         <span>Türkiye / Ankara</span>
       </div>
 
-      <!-- ÇÖP İKONU: tıklayınca video linkine gider -->
-      <a href="VIDEO_LINKINI_BURAYA_YAZ" target="_blank" rel="noopener"
-         class="relative group text-text/40 hover:text-accent transition-colors">
-        <svg class="w-5 h-5 transition-transform group-hover:rotate-12" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 22H6V20H18V22ZM9 6H15V4H17V6H22V8H20V20H18V8H6V20H4V8H2V6H7V4H9V6ZM15 4H9V2H15V4Z"/></svg>
-        <span class="pointer-events-none absolute right-0 bottom-full mb-2 whitespace-nowrap bg-card text-text text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-          HOVER_MESAJINI_BURAYA_YAZ
-        </span>
-      </a>
+      <!-- ÇÖP İKONU: tıklayınca video modalı açılır -->
+<button type="button" onclick="copVideoAc()"
+   class="relative group text-text/40 hover:text-accent transition-colors">
+  <svg class="w-5 h-5 transition-transform group-hover:rotate-12" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18 22H6V20H18V22ZM9 6H15V4H17V6H22V8H20V20H18V8H6V20H4V8H2V6H7V4H9V6ZM15 4H9V2H15V4Z"/></svg>
+  <span class="pointer-events-none absolute right-0 bottom-full mb-2 whitespace-nowrap bg-card text-text text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+    HOVER_MESAJINI_BURAYA_YAZ
+  </span>
+</button>
     </div>
 
     <!-- HAKKIMDA METNİ -->
@@ -384,53 +384,58 @@
       </div>
     </div>
 
-    <!-- OYUN (yatay kaydırmalı) -->
+        <!-- OYUN (yatay kaydırmalı) -->
     <div class="mt-14 mb-4">
-            <div class="flex items-center gap-2.5 mb-4">
+      <div class="flex items-center gap-2.5 mb-4">
         <svg class="w-7 h-7 text-zor shrink-0" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20 20H4v-2h16v2ZM4 18H2V6h2v12Zm18 0h-2V6h2v12Zm-12-7h2v2h-2v2H8v-2H6v-2h2V9h2v2Zm8 4h-2v-2h2v2Zm-2-4h-2V9h2v2Zm4-5H4V4h16v2Z"/></svg>
         <h2 class="text-zor text-2xl font-bold leading-none">Oyun</h2>
       </div>
 
       <div class="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory">
         <a href="OYUN_LINKI_1" target="_blank" rel="noopener" class="snap-start shrink-0 w-36 bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-[3/4] bg-bg/50 flex items-center justify-center text-text/30 text-xs">KAPAK</div>
-          <div class="p-2.5">
-            <p class="text-sm font-medium text-white truncate">OYUN_ADI_1</p>
-            <p class="text-xs text-highlight mt-0.5">★ 0/10</p>
+          <div class="aspect-[3/4] bg-bg/50 overflow-hidden">
+            <img src="images/oyun/minecraft.jpg" alt="Minecraft" class="w-full h-full object-cover">
           </div>
+          <div class="p-2.5"><p class="text-sm font-medium text-white truncate">Minecraft</p></div>
         </a>
         <a href="OYUN_LINKI_2" target="_blank" rel="noopener" class="snap-start shrink-0 w-36 bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-[3/4] bg-bg/50 flex items-center justify-center text-text/30 text-xs">KAPAK</div>
-          <div class="p-2.5">
-            <p class="text-sm font-medium text-white truncate">OYUN_ADI_2</p>
-            <p class="text-xs text-highlight mt-0.5">★ 0/10</p>
+          <div class="aspect-[3/4] bg-bg/50 overflow-hidden">
+            <img src="images/oyun/terraria.jpg" alt="Terraria" class="w-full h-full object-cover">
           </div>
+          <div class="p-2.5"><p class="text-sm font-medium text-white truncate">Terraria</p></div>
         </a>
         <a href="OYUN_LINKI_3" target="_blank" rel="noopener" class="snap-start shrink-0 w-36 bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-[3/4] bg-bg/50 flex items-center justify-center text-text/30 text-xs">KAPAK</div>
-          <div class="p-2.5">
-            <p class="text-sm font-medium text-white truncate">OYUN_ADI_3</p>
-            <p class="text-xs text-highlight mt-0.5">★ 0/10</p>
+          <div class="aspect-[3/4] bg-bg/50 overflow-hidden">
+            <img src="images/oyun/dont-starve-together.jpg" alt="Don't Starve Together" class="w-full h-full object-cover">
           </div>
+          <div class="p-2.5"><p class="text-sm font-medium text-white truncate">Don't Starve Together</p></div>
         </a>
         <a href="OYUN_LINKI_4" target="_blank" rel="noopener" class="snap-start shrink-0 w-36 bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-[3/4] bg-bg/50 flex items-center justify-center text-text/30 text-xs">KAPAK</div>
-          <div class="p-2.5">
-            <p class="text-sm font-medium text-white truncate">OYUN_ADI_4</p>
-            <p class="text-xs text-highlight mt-0.5">★ 0/10</p>
+          <div class="aspect-[3/4] bg-bg/50 overflow-hidden">
+            <img src="images/oyun/brawlhalla.jpg" alt="Brawlhalla" class="w-full h-full object-cover">
           </div>
+          <div class="p-2.5"><p class="text-sm font-medium text-white truncate">Brawlhalla</p></div>
         </a>
         <a href="OYUN_LINKI_5" target="_blank" rel="noopener" class="snap-start shrink-0 w-36 bg-card rounded-lg overflow-hidden hover:opacity-80 transition-opacity">
-          <div class="aspect-[3/4] bg-bg/50 flex items-center justify-center text-text/30 text-xs">KAPAK</div>
-          <div class="p-2.5">
-            <p class="text-sm font-medium text-white truncate">OYUN_ADI_5</p>
-            <p class="text-xs text-highlight mt-0.5">★ 0/10</p>
+          <div class="aspect-[3/4] bg-bg/50 overflow-hidden">
+            <img src="images/oyun/peak.jpg" alt="Peak" class="w-full h-full object-cover">
           </div>
+          <div class="p-2.5"><p class="text-sm font-medium text-white truncate">Peak</p></div>
         </a>
       </div>
     </div>
 
   </section>
+
+  <!-- VİDEO MODAL -->
+<div id="copVideoModal" class="hidden fixed inset-0 bg-black/80 z-[60] items-center justify-center p-4" onclick="if(event.target===this) copVideoKapat()">
+  <div class="relative w-full max-w-2xl">
+    <button onclick="copVideoKapat()" class="absolute top-2 right-2 z-10 text-white bg-black/50 rounded-full p-1.5 hover:text-accent transition-colors">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <video id="copVideo" src="images/cop-video.mp4" controls class="w-full max-h-[85vh] rounded-lg bg-black object-contain"></video>
+  </div>
+</div>
 
 </main>
 
@@ -510,6 +515,24 @@
       icon.innerHTML = '<path d="M9 5h2v2H9v10h2v2H9v2H7V3h2v2Zm4 12h-2v-2h2v2Zm2-2h-2v-2h2v2Zm2-2h-2v-2h2v2Zm-2-2h-2V9h2v2Zm-2-2h-2V7h2v2Z"/>';
     }
   }
+
+function copVideoAc() {
+    const modal = document.getElementById('copVideoModal');
+    const video = document.getElementById('copVideo');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    video.play();
+  }
+
+  function copVideoKapat() {
+    const modal = document.getElementById('copVideoModal');
+    const video = document.getElementById('copVideo');
+    video.pause();
+    video.currentTime = 0;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
 </script>
 
 </body>
